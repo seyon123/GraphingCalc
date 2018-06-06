@@ -18,9 +18,11 @@ public class GraphingCalc extends JFrame {
         mainPanel = new JPanel();
         mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
 
-        submitButton = new JButton();
-        submitButton.setPreferredSize(new Dimension(660, 30));
-        chooseFunction = new JComboBox();
+        submitButton = new JButton("Submit");
+        submitButton.setPreferredSize(new Dimension(50, 30));
+
+        String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
+        chooseFunction = new JComboBox(functionList);
 
         mainPanel.add(submitButton);
         mainPanel.add(chooseFunction);
