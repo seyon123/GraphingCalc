@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 
 public class GraphingCalc extends JFrame {
 
-    private JPanel mainPanel;
     private JButton submitButton;
     private JComboBox  chooseFunction;
 
@@ -15,22 +14,30 @@ public class GraphingCalc extends JFrame {
     }
 
     public GraphingCalc(){
-        mainPanel = new JPanel();
-        mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
+        JPanel mainPanel = new JPanel();
 
-        submitButton = new JButton("Submit");
-        submitButton.setPreferredSize(new Dimension(50, 30));
+        JLabel label1 = new JLabel("Choose a Function:");
+        label1.setAlignmentX(CENTER_ALIGNMENT);
 
         String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
         chooseFunction = new JComboBox(functionList);
+        chooseFunction.setPreferredSize(new Dimension(200, 30));
+        chooseFunction.setMaximumSize(chooseFunction.getPreferredSize());
 
-        mainPanel.add(submitButton);
+        submitButton = new JButton("Submit");
+        submitButton.setMaximumSize(new Dimension(100, 30));
+        submitButton.setAlignmentX(CENTER_ALIGNMENT);
+
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.add(Box.createRigidArea(new Dimension(800, 240)));
+        mainPanel.add(label1);
         mainPanel.add(chooseFunction);
+        mainPanel.add(submitButton);
 
         setContentPane(mainPanel);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setTitle("Graphing Calculator");
-        setSize(800,800);
+        setSize(800,600);
+        setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
