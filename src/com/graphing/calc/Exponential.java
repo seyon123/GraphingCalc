@@ -1,4 +1,10 @@
 package com.graphing.calc;
 
-public class Exponential {
+import javax.swing.*;
+
+public class Exponential extends JFrame {
+
+    public Exponential() {
+
+    }
 }

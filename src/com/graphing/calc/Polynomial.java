@@ -1,4 +1,10 @@
 package com.graphing.calc;
 
-public class Polynomial {
+import javax.swing.*;
+
+public class Polynomial extends JFrame {
+
+    public Polynomial() {
+
+    }
 }

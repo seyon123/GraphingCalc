@@ -1,4 +1,10 @@
 package com.graphing.calc;
 
-public class Equations {
+import javax.swing.*;
+
+public class Equations extends JFrame {
+
+    public Equations() {
+
+    }
 }

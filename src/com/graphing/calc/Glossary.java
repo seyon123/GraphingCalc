@@ -1,4 +1,10 @@
 package com.graphing.calc;
 
-public class Glossary {
+import javax.swing.*;
+
+public class Glossary extends JFrame {
+
+    public Glossary() {
+
+    }
 }
