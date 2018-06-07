@@ -35,7 +35,7 @@ public class GraphingCalc extends JFrame {
         submitButton.setAlignmentX(CENTER_ALIGNMENT);
 
         JLabel label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly");
-        label2.setAlignmentX(LEFT_ALIGNMENT);
+        label2.setAlignmentY(BOTTOM_ALIGNMENT);
 
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.add(logo);
@@ -51,7 +51,7 @@ public class GraphingCalc extends JFrame {
         setContentPane(mainPanel);
         setTitle("Graphing Calculator");
         setSize(800,600);
-        setResizable(false);
+        setResizable(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
