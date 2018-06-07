@@ -2,10 +2,12 @@ package com.graphing.calc;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+
 
 public class GraphingCalc extends JFrame {
 
+    private JPanel mainPanel;
     private JButton submitButton;
     private JComboBox  chooseFunction;
 
@@ -14,7 +16,7 @@ public class GraphingCalc extends JFrame {
     }
 
     public GraphingCalc(){
-        JPanel mainPanel = new JPanel();
+        mainPanel = new JPanel();
 
         JLabel logo = new JLabel();
         ImageIcon img = new ImageIcon("GraphingCalculator-Banner.png");
@@ -27,10 +29,12 @@ public class GraphingCalc extends JFrame {
 
         String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
         chooseFunction = new JComboBox(functionList);
+        chooseFunction.addActionListener(new ButtonListener());
         chooseFunction.setPreferredSize(new Dimension(200, 30));
         chooseFunction.setMaximumSize(chooseFunction.getPreferredSize());
 
         submitButton = new JButton("Submit");
+        submitButton.addActionListener(new ButtonListener());
         submitButton.setMaximumSize(new Dimension(100, 30));
         submitButton.setAlignmentX(CENTER_ALIGNMENT);
 
@@ -65,5 +69,23 @@ public class GraphingCalc extends JFrame {
                 }
             }
         });
+    }
+
+    private class ButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource() == chooseFunction ){
+                String function = (String) chooseFunction.getSelectedItem();
+                if (function.equals("Polynomial")){
+                    mainPanel.setVisible(false);
+                }
+                else if(function.equals("Exponential")){
+                    mainPanel.setVisible(false);
+                }
+                else if(function.equals("Logarithmic")){
+                    mainPanel.setVisible(false);
+                }
+            }
+        }
     }
 }
