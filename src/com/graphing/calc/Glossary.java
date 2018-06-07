@@ -8,6 +8,8 @@ public class Glossary {
 
     public Glossary() {
         glossary = new ArrayList<String>();
+        glossary.add("");
+
     }
 
     private String defineWord(String word) {
