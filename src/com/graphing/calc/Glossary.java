@@ -7,7 +7,9 @@ public class Glossary {
     private ArrayList<String> glossary;
 
     public Glossary() {
-        glossary = new ArrayList<>();
+        glossary = new ArrayList<String>();
+        glossary.add("");
+
     }
 
     private String defineWord(String word) {
