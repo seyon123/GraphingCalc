@@ -18,8 +18,11 @@ public class GraphingCalc extends JFrame {
 
     public GraphingCalc(){
 
-        JLabel label1 = new JLabel("Choose a Function:");
+        JLabel label1 = new JLabel("Choose Function Type:");
         label1.setAlignmentX(CENTER_ALIGNMENT);
+
+        ImageIcon infoimg = new ImageIcon("info-button.png");
+        JButton infobtn = new JButton(infoimg);
 
         String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
         chooseFunction = new JComboBox(functionList);
@@ -27,7 +30,7 @@ public class GraphingCalc extends JFrame {
         chooseFunction.setPreferredSize(new Dimension(200, 30));
         chooseFunction.setMaximumSize(chooseFunction.getPreferredSize());
 
-        submitButton = new JButton("Submit");
+        submitButton = new JButton("Enter");
         submitButton.addActionListener(new ButtonListener());
         submitButton.setMaximumSize(new Dimension(100, 30));
         submitButton.setAlignmentX(CENTER_ALIGNMENT);
@@ -39,9 +42,11 @@ public class GraphingCalc extends JFrame {
         label2.setAlignmentX(CENTER_ALIGNMENT);
 
         mainPanel = new JPanel();
+
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
         mainPanel.setBackground(new Color(0,0,0,0));
+        mainPanel.add(infobtn);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 220)));
         mainPanel.add(label1);
         mainPanel.add(Box.createVerticalStrut(10));
