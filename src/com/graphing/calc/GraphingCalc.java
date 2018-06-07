@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class GraphingCalc extends JFrame {
 
     private JPanel mainPanel;
-    private JButton submitButton;
+    private JButton submitButton, infobtn;
     private JComboBox  chooseFunction;
 
     public static void main (String [] args) {
@@ -22,7 +22,8 @@ public class GraphingCalc extends JFrame {
         label1.setAlignmentX(CENTER_ALIGNMENT);
 
         ImageIcon infoimg = new ImageIcon("info-button.png");
-        JButton infobtn = new JButton(infoimg);
+        infobtn = new JButton(infoimg);
+        infobtn.setAlignmentX(LEFT_ALIGNMENT);
 
         String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
         chooseFunction = new JComboBox(functionList);
@@ -93,6 +94,8 @@ public class GraphingCalc extends JFrame {
                     mainPanel.setVisible(false);
                 }
             }
-        }
+            if (e.getSource() == infobtn) {
+                mainPanel.setVisible(false);
+            }
     }
 }
