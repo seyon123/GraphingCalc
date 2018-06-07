@@ -2,6 +2,7 @@ package com.graphing.calc;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Color;
 import java.awt.event.*;
 
 
@@ -16,13 +17,6 @@ public class GraphingCalc extends JFrame {
     }
 
     public GraphingCalc(){
-        mainPanel = new JPanel();
-
-        JLabel logo = new JLabel();
-        ImageIcon img = new ImageIcon("background.jpg");
-        logo.setIcon(img);
-        logo.setBounds(0, 0, 0, 0);
-        logo.setAlignmentX(CENTER_ALIGNMENT);
 
         JLabel label1 = new JLabel("Choose a Function:");
         label1.setAlignmentX(CENTER_ALIGNMENT);
@@ -39,27 +33,34 @@ public class GraphingCalc extends JFrame {
         submitButton.setAlignmentX(CENTER_ALIGNMENT);
 
         JLabel label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly");
+        label2.setOpaque(true);
+        label2.setBackground(Color.WHITE);;
         label2.setAlignmentY(BOTTOM_ALIGNMENT);
         label2.setAlignmentX(CENTER_ALIGNMENT);
 
+        mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.add(logo);
-        mainPanel.add(Box.createRigidArea(new Dimension(800, 20)));
+        mainPanel.setSize(820,600);
+        mainPanel.setBackground(new Color(0,0,0,0));
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 220)));
         mainPanel.add(label1);
         mainPanel.add(Box.createVerticalStrut(10));
         mainPanel.add(chooseFunction);
         mainPanel.add(Box.createVerticalStrut(10));
         mainPanel.add(submitButton);
-        mainPanel.add(Box.createRigidArea(new Dimension(800, 220)));
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 220)));
         mainPanel.add(label2);
 
-        setContentPane(mainPanel);
+        setContentPane(new JLabel(new ImageIcon("background.jpg")));
+        add(mainPanel);
+        setLayout(new FlowLayout());
         setTitle("Graphing Calculator");
         setSize(820,600);
         setResizable(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+
 
         //prompts the user whether they are sure before closing
         addWindowListener(new java.awt.event.WindowAdapter() {
