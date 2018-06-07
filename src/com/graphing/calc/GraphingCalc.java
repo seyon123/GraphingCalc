@@ -19,9 +19,9 @@ public class GraphingCalc extends JFrame {
         mainPanel = new JPanel();
 
         JLabel logo = new JLabel();
-        ImageIcon img = new ImageIcon("GraphingCalculator-Banner.png");
+        ImageIcon img = new ImageIcon("background.jpg");
         logo.setIcon(img);
-        logo.setBounds(0, 0, 800, 200);
+        logo.setBounds(0, 0, 0, 0);
         logo.setAlignmentX(CENTER_ALIGNMENT);
 
         JLabel label1 = new JLabel("Choose a Function:");
@@ -40,6 +40,7 @@ public class GraphingCalc extends JFrame {
 
         JLabel label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly");
         label2.setAlignmentY(BOTTOM_ALIGNMENT);
+        label2.setAlignmentX(CENTER_ALIGNMENT);
 
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.add(logo);
@@ -54,7 +55,7 @@ public class GraphingCalc extends JFrame {
 
         setContentPane(mainPanel);
         setTitle("Graphing Calculator");
-        setSize(800,600);
+        setSize(820,600);
         setResizable(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -74,7 +75,7 @@ public class GraphingCalc extends JFrame {
     private class ButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(e.getSource() == chooseFunction ){
+            if(e.getSource() == submitButton ){
                 String function = (String) chooseFunction.getSelectedItem();
                 if (function.equals("Polynomial")){
                     mainPanel.setVisible(false);
