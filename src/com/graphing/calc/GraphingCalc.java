@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class GraphingCalc extends JFrame {
 
     private JPanel mainPanel;
-    private JButton submitButton, infobtn;
+    private JButton submitButton, infoBtn;
     private JComboBox  chooseFunction;
 
     public static void main (String [] args) {
@@ -21,9 +21,9 @@ public class GraphingCalc extends JFrame {
         JLabel label1 = new JLabel("Choose Function Type:");
         label1.setAlignmentX(CENTER_ALIGNMENT);
 
-        ImageIcon infoimg = new ImageIcon("info-button.png");
-        infobtn = new JButton(infoimg);
-        infobtn.setAlignmentX(LEFT_ALIGNMENT);
+        ImageIcon infoImg = new ImageIcon("info-button.png");
+        infoBtn = new JButton(infoImg);
+        infoBtn.setAlignmentX(RIGHT_ALIGNMENT);
 
         String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
         chooseFunction = new JComboBox(functionList);
@@ -43,23 +43,22 @@ public class GraphingCalc extends JFrame {
         label2.setAlignmentX(CENTER_ALIGNMENT);
 
         mainPanel = new JPanel();
-
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
         mainPanel.setBackground(new Color(0,0,0,0));
-        mainPanel.add(infobtn);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 220)));
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 205)));
         mainPanel.add(label1);
         mainPanel.add(Box.createVerticalStrut(10));
         mainPanel.add(chooseFunction);
         mainPanel.add(Box.createVerticalStrut(10));
         mainPanel.add(submitButton);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 220)));
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 205)));
         mainPanel.add(label2);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
+        add(infoBtn);
         add(mainPanel);
-        setLayout(new FlowLayout());
+        setLayout(new FlowLayout(FlowLayout.RIGHT));
         setTitle("Graphing Calculator");
         setSize(820,600);
         setResizable(true);
@@ -82,20 +81,19 @@ public class GraphingCalc extends JFrame {
     private class ButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(e.getSource() == submitButton ){
+            if (e.getSource() == submitButton) {
                 String function = (String) chooseFunction.getSelectedItem();
-                if (function.equals("Polynomial")){
+                if (function.equals("Polynomial")) {
                     mainPanel.setVisible(false);
-                }
-                else if(function.equals("Exponential")){
+                } else if (function.equals("Exponential")) {
                     mainPanel.setVisible(false);
-                }
-                else if(function.equals("Logarithmic")){
+                } else if (function.equals("Logarithmic")) {
                     mainPanel.setVisible(false);
                 }
             }
-            if (e.getSource() == infobtn) {
+            if (e.getSource() == infoBtn) {
                 mainPanel.setVisible(false);
             }
+        }
     }
 }
