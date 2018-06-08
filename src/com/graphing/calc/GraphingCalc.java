@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 public class GraphingCalc extends JFrame {
 
-    private JPanel mainPanel;
+    private JPanel mainPanel, canvasPanel;
     private JButton submitButton, infoBtn;
     private JComboBox  chooseFunction;
 
@@ -38,9 +38,17 @@ public class GraphingCalc extends JFrame {
 
         JLabel label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly");
         label2.setOpaque(true);
-        label2.setBackground(Color.WHITE);;
+        label2.setBackground(Color.WHITE);
         label2.setAlignmentY(BOTTOM_ALIGNMENT);
         label2.setAlignmentX(CENTER_ALIGNMENT);
+
+        canvasPanel = new JPanel();
+        canvasPanel.setVisible(false);
+        canvasPanel.setLayout(new BoxLayout(canvasPanel, BoxLayout.Y_AXIS));
+        canvasPanel.setSize(820,600);
+        canvasPanel.setBackground(new Color(0,0,0,0));
+        canvasPanel.add(Box.createRigidArea(new Dimension(820, 205)));
+        canvasPanel.add(new GraphCanvas());
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -58,6 +66,7 @@ public class GraphingCalc extends JFrame {
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         add(infoBtn);
         add(mainPanel);
+        add(canvasPanel);
         setLayout(new FlowLayout(FlowLayout.RIGHT));
         setTitle("Graphing Calculator");
         setSize(820,600);
@@ -91,8 +100,9 @@ public class GraphingCalc extends JFrame {
                     mainPanel.setVisible(false);
                 }
             }
-            if (e.getSource() == infoBtn) {
+            else if (e.getSource() == infoBtn) {
                 mainPanel.setVisible(false);
+                canvasPanel.setVisible(true);
             }
         }
     }
