@@ -8,8 +8,8 @@ import java.awt.event.*;
 
 public class GraphingCalc extends JFrame {
 
-    private JPanel mainPanel;
-    private JButton submitButton, infoBtn;
+    private JPanel mainPanel, canvasPanel;
+    private JButton submitButton, infoBtn, rtnButton;
     private JComboBox  chooseFunction;
 
     public static void main (String [] args) {
@@ -41,9 +41,15 @@ public class GraphingCalc extends JFrame {
 
         JLabel label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly");
         label2.setOpaque(true);
-        label2.setBackground(Color.WHITE);;
+        label2.setBackground(Color.WHITE);
         label2.setAlignmentY(BOTTOM_ALIGNMENT);
         label2.setAlignmentX(CENTER_ALIGNMENT);
+
+        canvasPanel = new JPanel();
+        canvasPanel.setLayout(new BoxLayout(canvasPanel, BoxLayout.Y_AXIS));
+        canvasPanel.setSize(820,600);
+        canvasPanel.setBackground(new Color(0,0,0,0));
+        canvasPanel.add(new GraphCanvas());
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -99,6 +105,7 @@ public class GraphingCalc extends JFrame {
             }
             else if (e.getSource() == infoBtn) {
                 mainPanel.setVisible(false);
+                add(canvasPanel);
             }
         }
     }
