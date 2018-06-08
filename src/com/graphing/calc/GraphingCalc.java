@@ -22,6 +22,10 @@ public class GraphingCalc extends JFrame {
         JLabel label1 = new JLabel("Choose Function Type:");
         label1.setAlignmentX(CENTER_ALIGNMENT);
 
+        JLabel label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly ");
+        label2.setOpaque(true);
+        label2.setBackground(Color.WHITE);
+
         ImageIcon infoImg = new ImageIcon("info-button.png");
         infoBtn = new JButton(infoImg);
         infoBtn.addActionListener(new ButtonListener());
@@ -30,8 +34,15 @@ public class GraphingCalc extends JFrame {
         ImageIcon returnImg = new ImageIcon("rtnButton.png");
         rtnBtn = new JButton(returnImg);
         rtnBtn.addActionListener(new ButtonListener());
-        rtnBtn.setAlignmentX(LEFT_ALIGNMENT);
-        rtnBtn.setAlignmentY(BOTTOM_ALIGNMENT);
+
+        JPanel northPanel = new JPanel(new BorderLayout());
+        northPanel.add(infoBtn, BorderLayout.EAST);
+        northPanel.setOpaque(false);
+
+        JPanel southPanel = new JPanel(new BorderLayout());
+        southPanel.add(label2,BorderLayout.EAST);
+        southPanel.add(rtnBtn, BorderLayout.WEST);
+        southPanel.setOpaque(false);
 
         String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
         chooseFunction = new JComboBox(functionList);
@@ -44,12 +55,6 @@ public class GraphingCalc extends JFrame {
         submitButton.setMaximumSize(new Dimension(100, 30));
         submitButton.setAlignmentX(CENTER_ALIGNMENT);
 
-        JLabel label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly");
-        label2.setOpaque(true);
-        label2.setBackground(Color.WHITE);
-        label2.setAlignmentY(BOTTOM_ALIGNMENT);
-        label2.setAlignmentX(CENTER_ALIGNMENT);
-
         canvas = new GraphCanvas();
         canvas.setSize(600, 200);
         canvas.setLocation(100, 100);
@@ -58,23 +63,23 @@ public class GraphingCalc extends JFrame {
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
         mainPanel.setBackground(new Color(0,0,0,0));
+        mainPanel.add(northPanel);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 205)));
         mainPanel.add(label1);
         mainPanel.add(Box.createVerticalStrut(10));
         mainPanel.add(chooseFunction);
         mainPanel.add(Box.createVerticalStrut(10));
         mainPanel.add(submitButton);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 205)));
-        mainPanel.add(label2);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 190)));
+        mainPanel.add(southPanel);
+
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
-        add(infoBtn);
+        setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
-        add(canvas);
-        add(rtnBtn);
-        setLayout(new FlowLayout(FlowLayout.RIGHT));
+        //add(canvas);
         setTitle("Graphing Calculator");
-        setSize(820,600);
+        setSize(835,600);
         setResizable(true);
 
 
