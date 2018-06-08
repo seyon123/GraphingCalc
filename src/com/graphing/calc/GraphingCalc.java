@@ -9,7 +9,7 @@ import java.awt.event.*;
 public class GraphingCalc extends JFrame {
 
     private JPanel mainPanel;
-    private JButton submitButton, infoBtn;
+    private JButton submitButton, infoBtn, rtnBtn;
     private JComboBox  chooseFunction;
 
     public static void main (String [] args) {
@@ -27,6 +27,9 @@ public class GraphingCalc extends JFrame {
         infoBtn.setAlignmentX(RIGHT_ALIGNMENT);
 
         ImageIcon returnImg = new ImageIcon("rtnButton.png");
+        rtnBtn = new JButton(returnImg);
+        rtnBtn.addActionListener(new ButtonListener());
+        rtnBtn.setAlignmentX(LEFT_ALIGNMENT);
 
         String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
         chooseFunction = new JComboBox(functionList);
@@ -41,7 +44,7 @@ public class GraphingCalc extends JFrame {
 
         JLabel label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly");
         label2.setOpaque(true);
-        label2.setBackground(Color.WHITE);;
+        label2.setBackground(Color.WHITE);
         label2.setAlignmentY(BOTTOM_ALIGNMENT);
         label2.setAlignmentX(CENTER_ALIGNMENT);
 
@@ -61,6 +64,7 @@ public class GraphingCalc extends JFrame {
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         add(infoBtn);
         add(mainPanel);
+        add(rtnBtn);
         setLayout(new FlowLayout(FlowLayout.RIGHT));
         setTitle("Graphing Calculator");
         setSize(820,600);
