@@ -8,6 +8,7 @@ import java.awt.event.*;
 
 public class GraphingCalc extends JFrame {
 
+    private GraphCanvas canvas;
     private JPanel mainPanel;
     private JButton submitButton, infoBtn, rtnBtn;
     private JComboBox  chooseFunction;
@@ -30,6 +31,7 @@ public class GraphingCalc extends JFrame {
         rtnBtn = new JButton(returnImg);
         rtnBtn.addActionListener(new ButtonListener());
         rtnBtn.setAlignmentX(LEFT_ALIGNMENT);
+        rtnBtn.setAlignmentY(BOTTOM_ALIGNMENT);
 
         String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
         chooseFunction = new JComboBox(functionList);
@@ -48,6 +50,10 @@ public class GraphingCalc extends JFrame {
         label2.setAlignmentY(BOTTOM_ALIGNMENT);
         label2.setAlignmentX(CENTER_ALIGNMENT);
 
+        canvas = new GraphCanvas();
+        canvas.setSize(600, 200);
+        canvas.setLocation(100, 100);
+
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
@@ -64,6 +70,7 @@ public class GraphingCalc extends JFrame {
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         add(infoBtn);
         add(mainPanel);
+        add(canvas);
         add(rtnBtn);
         setLayout(new FlowLayout(FlowLayout.RIGHT));
         setTitle("Graphing Calculator");

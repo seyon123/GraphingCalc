@@ -4,14 +4,15 @@ import java.awt.*;
 import java.awt.geom.*;
 import javax.swing.*;
 
-public class GraphCanvas extends Canvas {
+public class GraphCanvas extends JComponent {
     public GraphCanvas() {
-
+        repaint();
     }
+
     @Override
-    public void paint(Graphics g) {
+    public void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        super.paint(g);
+        g2.clearRect(0,0,getWidth(),getHeight());
 
         int xPoints[] = {0, 100, 0, 100};
         int yPoints[] = {0, 50, 0, 50};
