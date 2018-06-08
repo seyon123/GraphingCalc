@@ -23,7 +23,10 @@ public class GraphingCalc extends JFrame {
 
         ImageIcon infoImg = new ImageIcon("info-button.png");
         infoBtn = new JButton(infoImg);
+        infoBtn.addActionListener(new ButtonListener());
         infoBtn.setAlignmentX(RIGHT_ALIGNMENT);
+
+        ImageIcon returnImg = new ImageIcon("rtnButton.png");
 
         String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
         chooseFunction = new JComboBox(functionList);
@@ -71,6 +74,9 @@ public class GraphingCalc extends JFrame {
         setTitle("Graphing Calculator");
         setSize(820,600);
         setResizable(true);
+
+
+
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
