@@ -74,26 +74,29 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 190)));
         mainPanel.add(southPanel);
 
-        polynomialPanel = new JPanel();
-        polynomialPanel.setLayout(new BoxLayout(polynomialPanel, BoxLayout.Y_AXIS));
-        polynomialPanel.setSize(820,600);
-        polynomialPanel.setBackground(new Color(0,0,0,0));
-        polynomialPanel.add(northPanel);
-        polynomialPanel.add(southPanel);
-
-        exponentialPanel = new JPanel();
-        exponentialPanel.setLayout(new BoxLayout(exponentialPanel, BoxLayout.Y_AXIS));
-        exponentialPanel.setSize(820,600);
-        exponentialPanel.setBackground(new Color(0,0,0,0));
-        exponentialPanel.add(northPanel);
-        exponentialPanel.add(southPanel);
-
-        logarithmicPanel = new JPanel();
-        logarithmicPanel.setLayout(new BoxLayout(logarithmicPanel, BoxLayout.Y_AXIS));
-        logarithmicPanel.setSize(820,600);
-        logarithmicPanel.setBackground(new Color(0,0,0,0));
-        logarithmicPanel.add(northPanel);
-        logarithmicPanel.add(southPanel);
+//        polynomialPanel = new JPanel();
+//        polynomialPanel.setLayout(new BoxLayout(polynomialPanel, BoxLayout.Y_AXIS));
+//        polynomialPanel.setSize(820,600);
+//        polynomialPanel.setBackground(new Color(0,0,0,0));
+//        polynomialPanel.add(northPanel);
+//        polynomialPanel.add(Box.createRigidArea(new Dimension(820, 205)));
+//        polynomialPanel.add(southPanel);
+//
+//        exponentialPanel = new JPanel();
+//        exponentialPanel.setLayout(new BoxLayout(exponentialPanel, BoxLayout.Y_AXIS));
+//        exponentialPanel.setSize(820,600);
+//        exponentialPanel.setBackground(new Color(0,0,0,0));
+//        exponentialPanel.add(northPanel);
+//        exponentialPanel.add(Box.createRigidArea(new Dimension(820, 205)));
+//        exponentialPanel.add(southPanel);
+//
+//        logarithmicPanel = new JPanel();
+//        logarithmicPanel.setLayout(new BoxLayout(logarithmicPanel, BoxLayout.Y_AXIS));
+//        logarithmicPanel.setSize(820,600);
+//        logarithmicPanel.setBackground(new Color(0,0,0,0));
+//        logarithmicPanel.add(northPanel);
+//        logarithmicPanel.add(Box.createRigidArea(new Dimension(820, 205)));
+//        logarithmicPanel.add(southPanel);
 
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
