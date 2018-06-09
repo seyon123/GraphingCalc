@@ -9,11 +9,10 @@ import java.awt.event.*;
 public class GraphingCalc extends JFrame {
 
     private GraphCanvas canvas;
+    private JLabel label1;
     private JPanel mainPanel;
     private JButton submitButton, infoBtn, rtnBtn;
     private JComboBox  chooseFunction;
-    private JTextField searchValue;
-    private JDialog search;
 
     public static void main (String [] args) {
         new GraphingCalc();
@@ -21,7 +20,7 @@ public class GraphingCalc extends JFrame {
 
     public GraphingCalc(){
 
-        JLabel label1 = new JLabel("Choose Function Type:");
+        label1 = new JLabel("Choose Function Type:");
         label1.setAlignmentX(CENTER_ALIGNMENT);
 
         JLabel label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly ");
@@ -57,14 +56,6 @@ public class GraphingCalc extends JFrame {
         submitButton.setMaximumSize(new Dimension(100, 30));
         submitButton.setAlignmentX(CENTER_ALIGNMENT);
 
-//        JLabel label3 = new JLabel("Search for a word:");
-//        label3.setBounds(160, 55, 200, 25);
-//
-//        searchValue = new JTextField(100);
-//        searchValue.setBounds(160, 80, 180, 25);
-
-
-
         canvas = new GraphCanvas();
         canvas.setSize(600, 200);
         canvas.setLocation(100, 100);
@@ -82,6 +73,8 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(submitButton);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 190)));
         mainPanel.add(southPanel);
+
+
 
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -113,11 +106,17 @@ public class GraphingCalc extends JFrame {
             if (e.getSource() == submitButton) {
                 String function = (String) chooseFunction.getSelectedItem();
                 if (function.equals("Polynomial")) {
-                    mainPanel.setVisible(false);
+                    label1.setVisible(false);
+                    chooseFunction.setVisible(false);
+                    submitButton.setVisible(false);
                 } else if (function.equals("Exponential")) {
-                    mainPanel.setVisible(false);
+                    label1.setVisible(false);
+                    chooseFunction.setVisible(false);
+                    submitButton.setVisible(false);
                 } else if (function.equals("Logarithmic")) {
-                    mainPanel.setVisible(false);
+                    label1.setVisible(false);
+                    chooseFunction.setVisible(false);
+                    submitButton.setVisible(false);
                 }
             }
             else if (e.getSource() == infoBtn) {
