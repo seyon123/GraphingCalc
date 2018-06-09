@@ -10,7 +10,7 @@ public class GraphingCalc extends JFrame {
 
     private GraphCanvas canvas;
     private JLabel label1;
-    private JPanel mainPanel;
+    private JPanel mainPanel, polynomialPanel, exponentialPanel, logarithmicPanel;
     private JButton submitButton, infoBtn, rtnBtn;
     private JComboBox  chooseFunction;
 
@@ -74,7 +74,26 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 190)));
         mainPanel.add(southPanel);
 
+        polynomialPanel = new JPanel();
+        polynomialPanel.setLayout(new BoxLayout(polynomialPanel, BoxLayout.Y_AXIS));
+        polynomialPanel.setSize(820,600);
+        polynomialPanel.setBackground(new Color(0,0,0,0));
+        polynomialPanel.add(northPanel);
+        polynomialPanel.add(southPanel);
 
+        exponentialPanel = new JPanel();
+        exponentialPanel.setLayout(new BoxLayout(exponentialPanel, BoxLayout.Y_AXIS));
+        exponentialPanel.setSize(820,600);
+        exponentialPanel.setBackground(new Color(0,0,0,0));
+        exponentialPanel.add(northPanel);
+        exponentialPanel.add(southPanel);
+
+        logarithmicPanel = new JPanel();
+        logarithmicPanel.setLayout(new BoxLayout(logarithmicPanel, BoxLayout.Y_AXIS));
+        logarithmicPanel.setSize(820,600);
+        logarithmicPanel.setBackground(new Color(0,0,0,0));
+        logarithmicPanel.add(northPanel);
+        logarithmicPanel.add(southPanel);
 
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
