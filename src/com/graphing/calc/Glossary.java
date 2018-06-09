@@ -8,7 +8,7 @@ public class Glossary {
 
     public Glossary() {
         glossary = new ArrayList<>();
-        glossary.add("Polynomial");
+        glossary.add("polynomial");
         glossary.add("A polynomial function has the form , where are real numbers and n is a non negative integer.\nIn other words, a polynomial is the sum of one or more monomials with real coefficients and non negative integer exponents.\nThe degree of the polynomial function is the highest value for n where an is not equal to 0.");
 
     }
