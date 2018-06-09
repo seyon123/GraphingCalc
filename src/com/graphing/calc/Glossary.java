@@ -7,8 +7,9 @@ public class Glossary {
     private ArrayList<String> glossary;
 
     public Glossary() {
-        glossary = new ArrayList<String>();
-        glossary.add("");
+        glossary = new ArrayList<>();
+        glossary.add("Polynomial");
+        glossary.add("A polynomial function has the form , where are real numbers and n is a nonnegative integer. In other words, a polynomial is the sum of one or more monomials with real coefficients and nonnegative integer exponents. The degree of the polynomial function is the highest value for n where an is not equal to 0.");
 
     }
 
@@ -17,14 +18,14 @@ public class Glossary {
         return glossary.get(pos);
     }
 
-    public boolean checkWord(String word) {
+    public String checkWord(String word) {
         if (glossary.contains(word)) {
             defineWord(word);
         }
-        return false;
+        return "Cannot find '" + word + "' in the dictionary!";
     }
 
     public String toString(String word) {
-        return defineWord(word);
+        return word + ": " + defineWord(word);
     }
 }

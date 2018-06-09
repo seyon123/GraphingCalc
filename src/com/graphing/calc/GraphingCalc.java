@@ -120,8 +120,9 @@ public class GraphingCalc extends JFrame {
                 }
             }
             else if (e.getSource() == infoBtn) {
-
+                Glossary dictionary = new Glossary();
                 String searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Graphing Calculator", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, dictionary.checkWord(searchValue), "Graphing Calculator", JOptionPane.INFORMATION_MESSAGE);
 
             }
             else if(e.getSource() == rtnBtn){
