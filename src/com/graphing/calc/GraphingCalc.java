@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.Color;
 import java.awt.event.*;
 
-
 public class GraphingCalc extends JFrame {
 
     private GraphCanvas canvas;
@@ -98,7 +97,6 @@ public class GraphingCalc extends JFrame {
 //        logarithmicPanel.add(Box.createRigidArea(new Dimension(820, 205)));
 //        logarithmicPanel.add(southPanel);
 
-
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
@@ -109,7 +107,6 @@ public class GraphingCalc extends JFrame {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-
 
         //prompts the user whether they are sure before closing
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -144,8 +141,10 @@ public class GraphingCalc extends JFrame {
             else if (e.getSource() == infoBtn) {
                 Glossary dictionary = new Glossary();
                 String searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Graphing Calculator", JOptionPane.INFORMATION_MESSAGE);
-                JOptionPane.showMessageDialog(null, dictionary.checkWord(searchValue), "Graphing Calculator", JOptionPane.INFORMATION_MESSAGE);
-
+                if (!searchValue.equals("") && dictionary.checkWord(searchValue))
+                    JOptionPane.showMessageDialog(null, dictionary.defineWord(searchValue), "Graphing Calculator", JOptionPane.INFORMATION_MESSAGE);
+                else
+                    JOptionPane.showMessageDialog(null, "The word '" + searchValue + "' was not found in the dictionary!", "Graphing Calculator", JOptionPane.INFORMATION_MESSAGE);
             }
             else if(e.getSource() == rtnBtn){
                 dispose();
