@@ -57,14 +57,6 @@ public class GraphingCalc extends JFrame {
         submitButton.setMaximumSize(new Dimension(100, 30));
         submitButton.setAlignmentX(CENTER_ALIGNMENT);
 
-//        JLabel label3 = new JLabel("Search for a word:");
-//        label3.setBounds(160, 55, 200, 25);
-//
-//        searchValue = new JTextField(100);
-//        searchValue.setBounds(160, 80, 180, 25);
-
-
-
         canvas = new GraphCanvas();
         canvas.setSize(600, 200);
         canvas.setLocation(100, 100);
