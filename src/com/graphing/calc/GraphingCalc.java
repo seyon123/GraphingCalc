@@ -86,7 +86,6 @@ public class GraphingCalc extends JFrame {
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
-        //add(canvas);
         setTitle("Graphing Calculator");
         setSize(835,600);
         setResizable(true);
@@ -111,7 +110,7 @@ public class GraphingCalc extends JFrame {
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
-        //add(canvas);
+        add(canvas);
         setTitle("Graphing Calculator");
         setSize(835,600);
         setResizable(true);
@@ -137,7 +136,7 @@ public class GraphingCalc extends JFrame {
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
-        //add(canvas);
+        add(canvas);
         setTitle("Graphing Calculator");
         setSize(835,600);
         setResizable(true);
@@ -163,7 +162,7 @@ public class GraphingCalc extends JFrame {
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
-        //add(canvas);
+        add(canvas);
         setTitle("Graphing Calculator");
         setSize(835,600);
         setResizable(true);
