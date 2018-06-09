@@ -121,7 +121,7 @@ public class GraphingCalc extends JFrame {
             }
             else if (e.getSource() == infoBtn) {
 
-                String searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Graphing Calculator", JOptionPane.PLAIN_MESSAGE);
+                String searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Graphing Calculator", JOptionPane.INFORMATION_MESSAGE);
 
             }
             else if(e.getSource() == rtnBtn){
