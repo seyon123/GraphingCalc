@@ -69,10 +69,6 @@ public class GraphingCalc extends JFrame {
         submitButton.setMaximumSize(new Dimension(100, 30));
         submitButton.setAlignmentX(CENTER_ALIGNMENT);
 
-        canvas = new GraphCanvas();
-        canvas.setSize(600, 200);
-        canvas.setLocation(100, 100);
-
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
@@ -100,19 +96,6 @@ public class GraphingCalc extends JFrame {
     }
 
     public void polynomialScreen(){
-        label1 = new JLabel("Choose Function Type:");
-        label1.setAlignmentX(CENTER_ALIGNMENT);
-
-        String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
-        chooseFunction = new JComboBox(functionList);
-        chooseFunction.addActionListener(new ButtonListener());
-        chooseFunction.setPreferredSize(new Dimension(200, 30));
-        chooseFunction.setMaximumSize(chooseFunction.getPreferredSize());
-
-        submitButton = new JButton("Enter");
-        submitButton.addActionListener(new ButtonListener());
-        submitButton.setMaximumSize(new Dimension(100, 30));
-        submitButton.setAlignmentX(CENTER_ALIGNMENT);
 
         canvas = new GraphCanvas();
         canvas.setSize(600, 200);
@@ -139,19 +122,6 @@ public class GraphingCalc extends JFrame {
     }
 
     public void exponentialScreen(){
-        label1 = new JLabel("Choose Function Type:");
-        label1.setAlignmentX(CENTER_ALIGNMENT);
-
-        String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
-        chooseFunction = new JComboBox(functionList);
-        chooseFunction.addActionListener(new ButtonListener());
-        chooseFunction.setPreferredSize(new Dimension(200, 30));
-        chooseFunction.setMaximumSize(chooseFunction.getPreferredSize());
-
-        submitButton = new JButton("Enter");
-        submitButton.addActionListener(new ButtonListener());
-        submitButton.setMaximumSize(new Dimension(100, 30));
-        submitButton.setAlignmentX(CENTER_ALIGNMENT);
 
         canvas = new GraphCanvas();
         canvas.setSize(600, 200);
@@ -178,20 +148,7 @@ public class GraphingCalc extends JFrame {
     }
 
     public void logarithmicScreen(){
-        label1 = new JLabel("Choose Function Type:");
-        label1.setAlignmentX(CENTER_ALIGNMENT);
-
-        String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
-        chooseFunction = new JComboBox(functionList);
-        chooseFunction.addActionListener(new ButtonListener());
-        chooseFunction.setPreferredSize(new Dimension(200, 30));
-        chooseFunction.setMaximumSize(chooseFunction.getPreferredSize());
-
-        submitButton = new JButton("Enter");
-        submitButton.addActionListener(new ButtonListener());
-        submitButton.setMaximumSize(new Dimension(100, 30));
-        submitButton.setAlignmentX(CENTER_ALIGNMENT);
-
+        
         canvas = new GraphCanvas();
         canvas.setSize(600, 200);
         canvas.setLocation(100, 100);
