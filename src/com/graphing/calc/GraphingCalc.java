@@ -141,6 +141,7 @@ public class GraphingCalc extends JFrame {
             else if (e.getSource() == infoBtn) {
                 Glossary dictionary = new Glossary();
                 String searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Graphing Calculator", JOptionPane.INFORMATION_MESSAGE);
+                searchValue = searchValue.toLowerCase();
                 if (!searchValue.equals("") && dictionary.checkWord(searchValue))
                     JOptionPane.showMessageDialog(null, dictionary.defineWord(searchValue), "Graphing Calculator", JOptionPane.INFORMATION_MESSAGE);
                 else
