@@ -2,7 +2,6 @@ package com.graphing.calc;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Color;
 import java.awt.event.*;
 
 public class GraphingCalc extends JFrame {
