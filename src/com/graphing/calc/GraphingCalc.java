@@ -13,6 +13,8 @@ public class GraphingCalc extends JFrame {
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
 
+    public String coef1,coef2,coef3,coef4;
+
     public static void main (String [] args) {
         new GraphingCalc();
     }
@@ -99,7 +101,7 @@ public class GraphingCalc extends JFrame {
         add(mainPanel);
         setTitle("Graphing Calculator");
         setSize(830,600);
-        setResizable(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -108,9 +110,13 @@ public class GraphingCalc extends JFrame {
     public void polynomialScreen(){
 
         JTextField c1 = new JTextField(2);
+        coef1 = c1.getText();
         JTextField c2 = new JTextField(2);
+        coef2 = c2.getText();
         JTextField c3 = new JTextField(2);
+        coef3 = c3.getText();
         JTextField c4 = new JTextField(2);
+        coef4 = c4.getText();
         JPanel type = new JPanel();
         type.add(new JLabel("Polynomial Function:"));
         JPanel input = new JPanel();
@@ -140,7 +146,7 @@ public class GraphingCalc extends JFrame {
         add(canvas);
         setTitle("Graphing Calculator");
         setSize(830,600);
-        setResizable(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -172,7 +178,7 @@ public class GraphingCalc extends JFrame {
         add(mainPanel);
         setTitle("Graphing Calculator");
         setSize(830,600);
-        setResizable(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -211,7 +217,7 @@ public class GraphingCalc extends JFrame {
         add(mainPanel);
         setTitle("Graphing Calculator");
         setSize(830,600);
-        setResizable(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
