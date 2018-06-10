@@ -107,15 +107,27 @@ public class GraphingCalc extends JFrame {
 
     public void polynomialScreen(){
 
-
+        JTextField c1 = new JTextField(2);
+        JTextField c2 = new JTextField(2);
+        JTextField c3 = new JTextField(2);
+        JTextField c4 = new JTextField(2);
+        JPanel input = new JPanel();
+        input.add(new JLabel("f(x) = "));
+        input.add(c1);
+        input.add(new JLabel("x"+ "³" + " + "));
+        input.add(c2);
+        input.add(new JLabel("x"+ "²" + " + "));
+        input.add(c3);
+        input.add(new JLabel("x" + " + "));
+        input.add(c4);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
         mainPanel.setBackground(new Color(0,0,0,0));
         mainPanel.add(northPanel);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
-        mainPanel.add(graphPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
+        mainPanel.add(input);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
@@ -133,17 +145,19 @@ public class GraphingCalc extends JFrame {
 
     public void exponentialScreen(){
 
-        canvas = new GraphCanvas();
-        canvas.setSize(600, 200);
-        canvas.setLocation(100, 100);
+        JTextField b = new JTextField(2);
+        JPanel input = new JPanel();
+        input.add(new JLabel("f(x) = "));
+        input.add(b);
+        input.add(new JLabel("ˣ"));
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
         mainPanel.setBackground(new Color(0,0,0,0));
         mainPanel.add(northPanel);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
-        mainPanel.add(graphPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
+        mainPanel.add(input);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
@@ -159,18 +173,27 @@ public class GraphingCalc extends JFrame {
     }
 
     public void logarithmicScreen(){
-        
-        canvas = new GraphCanvas();
-        canvas.setSize(600, 200);
-        canvas.setLocation(100, 100);
+
+
+        JTextField c = new JTextField(2);
+        JTextField b = new JTextField("10", 2);
+        JTextField i = new JTextField(3);
+        JPanel input = new JPanel();
+        input.add(new JLabel("f(x) = "));
+        input.add(c);
+        input.add(new JLabel("log("));
+        input.add(i);
+        input.add(new JLabel("x )              "));
+        input.add(new JLabel("Input Base: "));
+        input.add(b);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
         mainPanel.setBackground(new Color(0,0,0,0));
         mainPanel.add(northPanel);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
-        mainPanel.add(graphPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
+        mainPanel.add(input);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
