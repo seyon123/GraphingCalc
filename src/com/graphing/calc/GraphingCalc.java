@@ -111,6 +111,8 @@ public class GraphingCalc extends JFrame {
         JTextField c2 = new JTextField(2);
         JTextField c3 = new JTextField(2);
         JTextField c4 = new JTextField(2);
+        JPanel type = new JPanel();
+        type.add(new JLabel("Polynomial Function:"));
         JPanel input = new JPanel();
         input.add(new JLabel("f(x) = "));
         input.add(c1);
@@ -127,6 +129,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.setBackground(new Color(0,0,0,0));
         mainPanel.add(northPanel);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
+        mainPanel.add(type);
         mainPanel.add(input);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
@@ -146,6 +149,8 @@ public class GraphingCalc extends JFrame {
     public void exponentialScreen(){
 
         JTextField b = new JTextField(2);
+        JPanel type = new JPanel();
+        type.add(new JLabel("Exponential Function:"));
         JPanel input = new JPanel();
         input.add(new JLabel("f(x) = "));
         input.add(b);
@@ -157,6 +162,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.setBackground(new Color(0,0,0,0));
         mainPanel.add(northPanel);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
+        mainPanel.add(type);
         mainPanel.add(input);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
@@ -178,6 +184,8 @@ public class GraphingCalc extends JFrame {
         JTextField c = new JTextField(2);
         JTextField b = new JTextField("10", 2);
         JTextField i = new JTextField(3);
+        JPanel type = new JPanel();
+        type.add(new JLabel("Logarithmic Function:"));
         JPanel input = new JPanel();
         input.add(new JLabel("f(x) = "));
         input.add(c);
@@ -193,6 +201,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.setBackground(new Color(0,0,0,0));
         mainPanel.add(northPanel);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
+        mainPanel.add(type);
         mainPanel.add(input);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
