@@ -72,6 +72,7 @@ public class GraphingCalc extends JFrame {
         chooseFunction.addActionListener(new ButtonListener());
         chooseFunction.setPreferredSize(new Dimension(200, 30));
         chooseFunction.setMaximumSize(new Dimension(200, 30));
+        chooseFunction.setOpaque(false);
         chooseFunction.grabFocus();
 
         submitButton = new JButton("Enter");
