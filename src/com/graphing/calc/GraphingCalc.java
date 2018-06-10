@@ -62,7 +62,8 @@ public class GraphingCalc extends JFrame {
         chooseFunction = new JComboBox(functionList);
         chooseFunction.addActionListener(new ButtonListener());
         chooseFunction.setPreferredSize(new Dimension(200, 30));
-        chooseFunction.setMaximumSize(chooseFunction.getPreferredSize());
+        chooseFunction.setMaximumSize(new Dimension(200, 30));
+        chooseFunction.grabFocus();
 
         submitButton = new JButton("Enter");
         submitButton.addActionListener(new ButtonListener());
@@ -80,7 +81,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(chooseFunction);
         mainPanel.add(Box.createVerticalStrut(10));
         mainPanel.add(submitButton);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 190)));
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 200)));
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -117,7 +118,6 @@ public class GraphingCalc extends JFrame {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-
     }
 
     public void exponentialScreen(){
@@ -143,7 +143,6 @@ public class GraphingCalc extends JFrame {
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-
     }
 
     public void logarithmicScreen(){
