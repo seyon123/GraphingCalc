@@ -9,7 +9,7 @@ public class GraphingCalc extends JFrame {
 
     private GraphCanvas canvas;
     private JLabel label1,label2;
-    private JPanel mainPanel, northPanel, southPanel;
+    private JPanel mainPanel, northPanel, southPanel, graphPanel;
     private JButton submitButton, infoBtn, rtnBtn;
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
@@ -40,6 +40,16 @@ public class GraphingCalc extends JFrame {
         southPanel.add(label2,BorderLayout.EAST);
         southPanel.add(rtnBtn, BorderLayout.WEST);
         southPanel.setOpaque(false);
+
+        canvas = new GraphCanvas();
+        canvas.setSize(600, 200);
+        canvas.setLocation(100, 100);
+
+        graphPanel = new JPanel();
+        graphPanel.setSize(780,420);
+        graphPanel.setLayout(new GridLayout(1,2));
+        graphPanel.setOpaque(true);
+        //graphPanel.add(canvas);
 
         mainScreen();
 
@@ -77,9 +87,9 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(northPanel);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 205)));
         mainPanel.add(label1);
-        mainPanel.add(Box.createVerticalStrut(10));
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(chooseFunction);
-        mainPanel.add(Box.createVerticalStrut(10));
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(submitButton);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 200)));
         mainPanel.add(southPanel);
@@ -88,7 +98,7 @@ public class GraphingCalc extends JFrame {
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
         setTitle("Graphing Calculator");
-        setSize(835,600);
+        setSize(830,600);
         setResizable(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -97,15 +107,16 @@ public class GraphingCalc extends JFrame {
 
     public void polynomialScreen(){
 
-        canvas = new GraphCanvas();
-        canvas.setSize(600, 200);
-        canvas.setLocation(100, 100);
+
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
         mainPanel.setBackground(new Color(0,0,0,0));
         mainPanel.add(northPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
+        mainPanel.add(graphPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -113,7 +124,7 @@ public class GraphingCalc extends JFrame {
         add(mainPanel);
         add(canvas);
         setTitle("Graphing Calculator");
-        setSize(835,600);
+        setSize(830,600);
         setResizable(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -131,14 +142,16 @@ public class GraphingCalc extends JFrame {
         mainPanel.setSize(820,600);
         mainPanel.setBackground(new Color(0,0,0,0));
         mainPanel.add(northPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
+        mainPanel.add(graphPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
-        add(canvas);
         setTitle("Graphing Calculator");
-        setSize(835,600);
+        setSize(830,600);
         setResizable(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -156,14 +169,16 @@ public class GraphingCalc extends JFrame {
         mainPanel.setSize(820,600);
         mainPanel.setBackground(new Color(0,0,0,0));
         mainPanel.add(northPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
+        mainPanel.add(graphPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
-        add(canvas);
         setTitle("Graphing Calculator");
-        setSize(835,600);
+        setSize(830,600);
         setResizable(true);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
