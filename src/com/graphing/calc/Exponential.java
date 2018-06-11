@@ -1,6 +1,6 @@
 package com.graphing.calc;
 
-public class Exponential {
+public class Exponential extends Equations {
 
     public Exponential() {
 
