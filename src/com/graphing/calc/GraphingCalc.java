@@ -8,8 +8,8 @@ public class GraphingCalc extends JFrame {
 
     private GraphCanvas canvas;
     private JLabel label1,label2;
-    private JPanel mainPanel, northPanel, southPanel, graphPanel;
-    private JButton submitButton, infoBtn, rtnBtn;
+    private JPanel mainPanel, northPanel, southPanel, submitPanel;
+    private JButton submitButton, infoBtn, rtnBtn, ftnSubmit;
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
 
@@ -33,6 +33,12 @@ public class GraphingCalc extends JFrame {
         rtnBtn = new JButton(returnImg);
         rtnBtn.addActionListener(new ButtonListener());
 
+        ftnSubmit = new JButton("Submit");
+        ftnSubmit.addActionListener(new ButtonListener());
+
+        submitPanel = new JPanel();
+        submitPanel.add(ftnSubmit);
+
         northPanel = new JPanel(new BorderLayout());
         northPanel.add(infoBtn, BorderLayout.EAST);
         northPanel.setOpaque(false);
@@ -40,18 +46,11 @@ public class GraphingCalc extends JFrame {
         southPanel = new JPanel(new BorderLayout());
         southPanel.add(label2,BorderLayout.EAST);
         southPanel.add(rtnBtn, BorderLayout.WEST);
-        southPanel.setOpaque(false);
+        southPanel.setOpaque(true);
 
         canvas = new GraphCanvas();
-        canvas.setSize(600, 200);
-        canvas.setLocation(100, 100);
-        canvas.setPreferredSize(new Dimension(600, 200));
-
-        graphPanel = new JPanel();
-        graphPanel.setSize(780,420);
-        graphPanel.setLayout(new GridLayout(1,2));
-        graphPanel.setOpaque(true);
-        //graphPanel.add(canvas);
+        canvas.setSize(400, 325);
+        canvas.setPreferredSize(new Dimension(400, 325));
 
         mainScreen();
 
@@ -94,14 +93,14 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(chooseFunction);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(submitButton);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 200)));
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 210)));
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
         setTitle("Graphing Calculator");
-        setSize(830,600);
+        setSize(825,600);
         setResizable(false);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -138,8 +137,8 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
         mainPanel.add(type);
         mainPanel.add(input);
+        mainPanel.add(submitPanel);
         mainPanel.add(canvas);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -171,8 +170,8 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
         mainPanel.add(type);
         mainPanel.add(input);
+        mainPanel.add(submitPanel);
         mainPanel.add(canvas);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -211,8 +210,8 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
         mainPanel.add(type);
         mainPanel.add(input);
+        mainPanel.add(submitPanel);
         mainPanel.add(canvas);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -256,6 +255,9 @@ public class GraphingCalc extends JFrame {
             else if(e.getSource() == rtnBtn){
                 dispose();
                 new GraphingCalc();
+            }
+            else if(e.getSource() == ftnSubmit){
+
             }
         }
     }
