@@ -13,13 +13,13 @@ public class GraphingCalc extends JFrame {
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
 
-    public String coef1,coef2,coef3,coef4;
+    private String coef1,coef2,coef3,coef4;
 
     public static void main (String [] args) {
         new GraphingCalc();
     }
 
-    public GraphingCalc(){
+    public GraphingCalc() {
         label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly ");
         label2.setOpaque(true);
         label2.setBackground(Color.WHITE);
@@ -45,6 +45,7 @@ public class GraphingCalc extends JFrame {
         canvas = new GraphCanvas();
         canvas.setSize(600, 200);
         canvas.setLocation(100, 100);
+        canvas.setPreferredSize(new Dimension(600, 200));
 
         graphPanel = new JPanel();
         graphPanel.setSize(780,420);
@@ -65,7 +66,7 @@ public class GraphingCalc extends JFrame {
         });
     }
 
-    public void mainScreen(){
+    private void mainScreen(){
         label1 = new JLabel("Choose Function Type:");
         label1.setAlignmentX(CENTER_ALIGNMENT);
 
@@ -107,7 +108,7 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
-    public void polynomialScreen(){
+    private void polynomialScreen(){
 
         JTextField c1 = new JTextField(2);
         coef1 = c1.getText();
@@ -137,13 +138,13 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
         mainPanel.add(type);
         mainPanel.add(input);
+        mainPanel.add(canvas);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
-        add(canvas);
         setTitle("Graphing Calculator");
         setSize(830,600);
         setResizable(false);
@@ -152,7 +153,7 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
-    public void exponentialScreen(){
+    private void exponentialScreen(){
 
         JTextField b = new JTextField(2);
         JPanel type = new JPanel();
@@ -184,7 +185,7 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
-    public void logarithmicScreen(){
+    private void logarithmicScreen(){
 
 
         JTextField c = new JTextField(2);
@@ -228,12 +229,16 @@ public class GraphingCalc extends JFrame {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == submitButton) {
                 String function = (String) chooseFunction.getSelectedItem();
-                if (function.equals("Polynomial")) {
-                    polynomialScreen();
-                } else if (function.equals("Exponential")) {
-                    exponentialScreen();
-                } else if (function.equals("Logarithmic")) {
-                    logarithmicScreen();
+                switch (function) {
+                    case "Polynomial":
+                        polynomialScreen();
+                        break;
+                    case "Exponential":
+                        exponentialScreen();
+                        break;
+                    case "Logarithmic":
+                        logarithmicScreen();
+                        break;
                 }
             }
             else if (e.getSource() == infoBtn) {
