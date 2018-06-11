@@ -70,7 +70,7 @@ public class GraphingCalc extends JFrame {
         label1 = new JLabel("Choose Function Type:");
         label1.setAlignmentX(CENTER_ALIGNMENT);
 
-        String[] functionList = {"-- None --", "Polynomial", "Exponential",  "Logarithmic",};
+        String[] functionList = {"-- Select Function --", "Polynomial", "Exponential",  "Logarithmic",};
         chooseFunction = new JComboBox(functionList);
         chooseFunction.addActionListener(new ButtonListener());
         chooseFunction.setPreferredSize(new Dimension(200, 30));
@@ -161,7 +161,7 @@ public class GraphingCalc extends JFrame {
         JPanel input = new JPanel();
         input.add(new JLabel("f(x) = "));
         input.add(b);
-        input.add(new JLabel("ˣ"));
+        input.add(new JLabel("ˣ        ex. (bˣ)"));
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -171,6 +171,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
         mainPanel.add(type);
         mainPanel.add(input);
+        mainPanel.add(canvas);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
@@ -198,7 +199,7 @@ public class GraphingCalc extends JFrame {
         input.add(c);
         input.add(new JLabel("log("));
         input.add(i);
-        input.add(new JLabel("x )              "));
+        input.add(new JLabel("x)              "));
         input.add(new JLabel("Input Base: "));
         input.add(b);
 
@@ -210,6 +211,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
         mainPanel.add(type);
         mainPanel.add(input);
+        mainPanel.add(canvas);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(southPanel);
 
