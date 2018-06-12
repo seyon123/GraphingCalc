@@ -10,7 +10,7 @@ public class GraphingCalc extends JFrame {
     private GraphCanvas canvas;
     private JLabel label1,label2;
     private JPanel mainPanel, northPanel, southPanel, submitPanel;
-    private JButton submitButton, infoBtn, rtnBtn, enterBtn, clrBtn;
+    private JButton enterButton, infoBtn, rtnBtn, ftnSubmit, clrBtn;
     private JTextField c1, c2, c3, c4, c5, b, bs;
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
@@ -33,14 +33,14 @@ public class GraphingCalc extends JFrame {
         rtnBtn = new JButton(returnImg);
         rtnBtn.addActionListener(new ButtonListener());
 
-        enterBtn = new JButton("Submit");
-        enterBtn.addActionListener(new ButtonListener());
+        ftnSubmit = new JButton("Submit");
+        ftnSubmit.addActionListener(new ButtonListener());
 
         clrBtn = new JButton("Clear");
         clrBtn.addActionListener(new ButtonListener());
 
         submitPanel = new JPanel();
-        submitPanel.add(enterBtn);
+        submitPanel.add(ftnSubmit);
         submitPanel.add(clrBtn);
 
         northPanel = new JPanel(new BorderLayout());
@@ -81,10 +81,10 @@ public class GraphingCalc extends JFrame {
         chooseFunction.setOpaque(false);
         chooseFunction.grabFocus();
 
-        submitButton = new JButton("Enter");
-        submitButton.addActionListener(new ButtonListener());
-        submitButton.setMaximumSize(new Dimension(100, 30));
-        submitButton.setAlignmentX(CENTER_ALIGNMENT);
+        enterButton = new JButton("Enter");
+        enterButton.addActionListener(new ButtonListener());
+        enterButton.setMaximumSize(new Dimension(100, 30));
+        enterButton.setAlignmentX(CENTER_ALIGNMENT);
 
         rtnBtn.setVisible(false);
 
@@ -98,7 +98,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(chooseFunction);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
-        mainPanel.add(submitButton);
+        mainPanel.add(enterButton);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 220)));
         mainPanel.add(southPanel);
 
@@ -155,11 +155,8 @@ public class GraphingCalc extends JFrame {
     private void quadraticScreen() {
 
         c1 = new JTextField(2);
-        coef1 = c1.getText();
         c2 = new JTextField(2);
-        coef2 = c2.getText();
         c3 = new JTextField(2);
-        coef3 = c3.getText();
         JPanel type = new JPanel();
         type.add(new JLabel("Quadratic Function:"));
         JPanel input = new JPanel();
@@ -200,7 +197,6 @@ public class GraphingCalc extends JFrame {
     private void exponentialScreen(){
 
         b = new JTextField(2);
-        base = b.getText();
         JPanel type = new JPanel();
         type.add(new JLabel("Exponential Function:"));
         JPanel input = new JPanel();
@@ -237,17 +233,11 @@ public class GraphingCalc extends JFrame {
     private void logarithmicScreen(){
 
         c1 = new JTextField(2);
-        coef1 = c1.getText();
         c2 = new JTextField(2);
-        coef2 = c2.getText();
         c3 = new JTextField(2);
-        coef3 = c3.getText();
         c4 = new JTextField(2);
-        coef4 = c4.getText();
         c5 = new JTextField(2);
-        coef5 = c5.getText();
         bs = new JTextField("10", 2);
-        base = bs.getText();
         JPanel type = new JPanel();
         type.add(new JLabel("Logarithmic Function:"));
         JPanel input = new JPanel();
@@ -294,7 +284,7 @@ public class GraphingCalc extends JFrame {
     private class ButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == submitButton) {
+            if (e.getSource() == enterButton) {
                 parentFunction = (String) chooseFunction.getSelectedItem();
                 assert parentFunction != null;
                 switch (parentFunction) {
@@ -321,7 +311,7 @@ public class GraphingCalc extends JFrame {
                 try {
                     dictionary = new Glossary();
                 } catch (IOException e1) {
-                    e1.printStackTrace();
+                    //e1.printStackTrace();
                 }
                 ImageIcon searchIcon = new ImageIcon("active-search.png");
                 searchValue = (String) JOptionPane.showInputDialog(null, "Search for what you need help with:", "Glossary", JOptionPane.INFORMATION_MESSAGE, searchIcon, null, null);
@@ -337,25 +327,75 @@ public class GraphingCalc extends JFrame {
                         JOptionPane.showMessageDialog(null, "Please enter a search term!", "Glossary", JOptionPane.ERROR_MESSAGE, searchIcon);
                     }
                 } catch (NullPointerException el) {
-                    el.printStackTrace();
+                    //el.printStackTrace();
                 }
             }
             else if(e.getSource() == rtnBtn) {
                 dispose();
                 new GraphingCalc();
             }
-            else if (e.getSource() == enterBtn) {
+            else if (e.getSource() == ftnSubmit) {
                 if (parentFunction.equals("Linear")) {
                     coef1 = c1.getText();
                     coef2 = c2.getText();
-                    if (coef1.equals("") || coef2.equals(""))
-                        JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
-                    else {
+                    if (!coef1.equals("") && !coef2.equals("")) {
                         canvas = new GraphCanvas(parentFunction, coef1, coef2);
                         canvas.setSize(400, 300);
                         canvas.setPreferredSize(new Dimension(400, 300));
                         mainPanel.add(canvas);
+                    } else
+                        JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
+                    int count = 0;
+                    if (count < poly.getWidth()) {
+                        count++;
+                        canvas.repaint();
                     }
+                }
+                else if (parentFunction.equals("Quadratic")) {
+                    coef1 = c1.getText();
+                    coef2 = c2.getText();
+                    coef3 = c3.getText();
+                    if (!coef1.equals("") && !coef2.equals("") && !coef3.equals("")) {
+                        canvas = new GraphCanvas(parentFunction, coef1, coef2, coef3);
+                        canvas.setSize(400, 300);
+                        canvas.setPreferredSize(new Dimension(400, 300));
+                        mainPanel.add(canvas);
+                    } else
+                        JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
+                    int count = 0;
+                    if (count < poly.getWidth()) {
+                        count++;
+                        canvas.repaint();
+                    }
+                }
+                else if (parentFunction.equals("Exponential")) {
+                    base = b.getText();
+                    if (!base.equals("")) {
+                        canvas = new GraphCanvas(parentFunction, base);
+                        canvas.setSize(400, 300);
+                        canvas.setPreferredSize(new Dimension(400, 300));
+                        mainPanel.add(canvas);
+                    } else
+                        JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
+                    int count = 0;
+                    if (count < poly.getWidth()) {
+                        count++;
+                        canvas.repaint();
+                    }
+                }
+                else if (parentFunction.equals("Logarithmic")) {
+                    coef1 = c1.getText();
+                    coef2 = c2.getText();
+                    coef3 = c3.getText();
+                    coef4 = c4.getText();
+                    coef5 = c5.getText();
+                    if (!coef1.equals("") && !coef2.equals("") && !coef3.equals("") && !coef4.equals("") && !coef5.equals("")) {
+                        canvas = new GraphCanvas(parentFunction, coef1, coef2, coef3, coef4, coef5);
+                        canvas.setSize(400, 300);
+                        canvas.setPreferredSize(new Dimension(400, 300));
+                        mainPanel.add(canvas);
+                    } else
+                        JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
                     int count = 0;
                     if (count < poly.getWidth()) {
                         count++;

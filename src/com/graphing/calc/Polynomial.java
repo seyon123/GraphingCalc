@@ -5,8 +5,8 @@ import java.awt.*;
 public class Polynomial extends Equations {
 
     private int spacing, height, width, hMidpoint, vMidpoint;
-    private int[] yPoints = new int [815];
-    private int[] y2Points = new int [815];
+    private int[] yPoints = new int [2000];
+    private int[] y2Points = new int [2000];
 
     public Polynomial(int c1, int c2, int c3, int c4) {
         super(c1, c2, c3, c4, 0);
@@ -36,6 +36,22 @@ public class Polynomial extends Equations {
     }
     public int gety2Points(int i){
         return y2Points[i];
+    }
+
+    public void setHeight(int heightin){
+        if(heightin > 0){
+            height = heightin;
+        }
+    }
+    public void setSpacing(int spacingin){
+        if(spacingin > 20){
+            spacing = spacingin;
+        }
+    }
+    public void setWidth(int widthin){
+        if(widthin > 0){
+            width = widthin;
+        }
     }
 
     public void plotPoints(double a, double b){
