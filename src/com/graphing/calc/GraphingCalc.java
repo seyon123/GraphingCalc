@@ -74,7 +74,7 @@ public class GraphingCalc extends JFrame {
         label1 = new JLabel("Choose Function Type:");
         label1.setAlignmentX(CENTER_ALIGNMENT);
 
-        String[] functionList = {"-- Select Function --", "Polynomial", "Exponential",  "Logarithmic",};
+        String[] functionList = {"-- Select Function --", "Linear", "Quadratic", "Exponential", "Logarithmic",};
         chooseFunction = new JComboBox<>(functionList);
         chooseFunction.addActionListener(new ButtonListener());
         chooseFunction.setPreferredSize(new Dimension(200, 30));
@@ -112,7 +112,47 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
-    private void polynomialScreen(){
+    private void LinearScreen() {
+
+        JTextField c1 = new JTextField(2);
+        coef1 = Integer.parseInt(c1.getText());
+        JTextField c2 = new JTextField(2);
+        coef2 = Integer.parseInt(c2.getText());
+        JPanel type = new JPanel();
+        type.add(new JLabel("Linear Function:"));
+        JPanel input = new JPanel();
+        input.add(new JLabel("f(x) = ax + b"));
+        JPanel coefs = new JPanel();
+        coefs.add(new JLabel("a: "));
+        coefs.add(c1);
+        coefs.add(new JLabel("b: "));
+        coefs.add(c2);
+
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.setSize(820, 600);
+        mainPanel.setBackground(new Color(0, 0, 0, 0));
+        mainPanel.add(northPanel);
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
+        mainPanel.add(type);
+        mainPanel.add(input);
+        mainPanel.add(coefs);
+        mainPanel.add(submitPanel);
+        mainPanel.add(canvas);
+        mainPanel.add(southPanel);
+
+        setContentPane(new JLabel(new ImageIcon("background.jpg")));
+        setLayout(new FlowLayout(FlowLayout.CENTER));
+        add(mainPanel);
+        setTitle("Graphing Calculator");
+        setSize(830, 600);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    private void QuadraticScreen() {
 
         JTextField c1 = new JTextField(2);
         coef1 = Integer.parseInt(c1.getText());
@@ -120,12 +160,10 @@ public class GraphingCalc extends JFrame {
         coef2 = Integer.parseInt(c2.getText());
         JTextField c3 = new JTextField(2);
         coef3 = Integer.parseInt(c3.getText());
-        JTextField c4 = new JTextField(2);
-        coef4 = Integer.parseInt(c4.getText());
         JPanel type = new JPanel();
-        type.add(new JLabel("Polynomial Function:"));
+        type.add(new JLabel("Quadratic Function:"));
         JPanel input = new JPanel();
-        input.add(new JLabel("f(x) = ax^3 + bx^2 + cx + d"));
+        input.add(new JLabel("f(x) = ax^2 + bx + c"));
         JPanel coefs = new JPanel();
         coefs.add(new JLabel("a: "));
         coefs.add(c1);
@@ -133,8 +171,6 @@ public class GraphingCalc extends JFrame {
         coefs.add(c2);
         coefs.add(new JLabel("c: "));
         coefs.add(c3);
-        coefs.add(new JLabel("d: "));
-        coefs.add(c4);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -258,18 +294,21 @@ public class GraphingCalc extends JFrame {
             if (e.getSource() == submitButton) {
                 parentFunction = (String) chooseFunction.getSelectedItem();
                 assert parentFunction != null;
-                    switch (parentFunction) {
-                        case "Polynomial":
-                            polynomialScreen();
-                            break;
-                        case "Exponential":
-                            exponentialScreen();
-                            break;
-                        case "Logarithmic":
-                            logarithmicScreen();
-                            break;
-                        default:
-                            break;
+                switch (parentFunction) {
+                    case "Linear":
+                        LinearScreen();
+                        break;
+                    case "Polynomial":
+                        QuadraticScreen();
+                        break;
+                    case "Exponential":
+                        exponentialScreen();
+                        break;
+                    case "Logarithmic":
+                        logarithmicScreen();
+                        break;
+                    default:
+                        break;
                 }
             }
             else if (e.getSource() == infoBtn) {
