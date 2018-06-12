@@ -1,4 +1,14 @@
-exponential - Exponential functions are functions of that have a fixed base b that could be any positive real number. Exponential functions are often associated with exponential growth, which means that that there is a consistent fixed period over which the function will double (or triple, or quadruple, etc.) and the change is always a fixed proportion.
-function - The function is a general relation between a set of input values (domain) and corresponding set of output values (co-domain). It relates each element of a set (domain) with exactly one element of another set (co-domain). Every element in domain must have a corresponding value in co-domain. A function is single valued. It can't give two or more output values for the same input.
+asymptote - A line that the graph of a relation or function gets closer and closer to, but never meets, on some part of its domain.
+discontinuity - A value for x, on an x-y graph, for which a value for y is not defined.
+displacement - A translation from one position to another, without consideration of any intervening positions; the minimal distance between two points.
+domain - The set of all values of the independent variable of a relation.
+exponential - Exponential functions are functions of that have a fixed base b that could be any positive real number.
+function - The function is a general relation between a set of input values (domain) and corresponding set of output values (co-domain). It relates each element of a set (domain) with exactly one element of another set (co-domain).
 logarithmic - Logarithmic functions are the inverses of exponential functions. The inverse of the exponential function y = ax is x = ay. The logarithmic function y = logax is defined to be equivalent to the exponential equation x = ay. y = logax only under the following conditions: x = ay, a > 0, and a≠1. It is called the logarithmic function with base a.
-polynomial - A polynomial function has the form, where are real numbers and n is a non negative integer. In other words, a polynomial is the sum of one or more monomials with real coefficients and non negative integer exponents. The degree of the polynomial function is the highest value for n where an is not equal to 0.
+order - The exponent to which each factor in an algebraic expression is raised.
+parent - The simplest, or base, function in a family of functions.
+period - The change in the independent variable (typically x) that corresponds to one cycle of a sinusoidal function.
+piecewise - A function that is defined using two or more rules on two or more intervals; as a result, the graph consists of two or more pieces of similar or different functions.
+polynomial - A polynomial function has the form, where are real numbers and n is a non negative integer. The degree of the polynomial function is the highest value for n where an is not equal to 0.
+radian - The size of an angle that is subtended at the centre of a circle by an arc with a length equal to the radius of the circle; both the arc length and the radius are measured in units of length (such as centimetres) and, as a result, the angle is a real number without any units.
+range - The set of all values of the dependent variable of a relation.
