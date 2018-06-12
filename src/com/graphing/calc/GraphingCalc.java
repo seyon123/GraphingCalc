@@ -305,6 +305,8 @@ public class GraphingCalc extends JFrame {
                         logarithmicScreen();
                         break;
                     default:
+                        setExtendedState(JFrame.ICONIFIED);
+                        setExtendedState(JFrame.NORMAL);
                         break;
                 }
             }
@@ -340,16 +342,22 @@ public class GraphingCalc extends JFrame {
                 if (parentFunction.equals("Linear")) {
                     coef1 = c1.getText();
                     coef2 = c2.getText();
-                    canvas = new GraphCanvas(parentFunction, coef1, coef2);
-                    canvas.setSize(400, 300);
-                    canvas.setPreferredSize(new Dimension(400, 300));
-                    mainPanel.add(canvas);
+                    if (coef1.equals("") || coef2.equals(""))
+                        JOptionPane.showMessageDialog(null, "Please input the coefficients!", "No Input Found", JOptionPane.ERROR_MESSAGE);
+                    else {
+                        canvas = new GraphCanvas(parentFunction, coef1, coef2);
+                        canvas.setSize(400, 300);
+                        canvas.setPreferredSize(new Dimension(400, 300));
+                        mainPanel.add(canvas);
+                    }
                 }
                 int count = 0;
                 if(count < poly.getWidth() ){
                     count++;
                     canvas.repaint();
                 }
+                setExtendedState(JFrame.ICONIFIED);
+                setExtendedState(JFrame.NORMAL);
             }
         }
     }

@@ -1,5 +1,7 @@
 package com.graphing.calc;
 
+import java.awt.*;
+
 public class Polynomial extends Equations {
 
     private int spacing, height, width, hMidpoint, vMidpoint;
@@ -70,6 +72,44 @@ public class Polynomial extends Equations {
                 yPoints[i] = y;
                 y2Points[i] = y2;
             }
+        }
+    }
+
+
+    public void drawGrid(Graphics g){
+        //determines nessecary amount of lines
+        int vlines = width/spacing;
+        int hlines = height/spacing;
+        if (vlines % 2 != 0){
+            vlines++;
+        }
+        if (hlines % 2 != 0){
+            hlines++;
+        }
+        int hcount = 0, vcount = 0, i;
+        for(i = 0;i < height;i = i+spacing){
+            //draws horizontal line
+            g.drawLine(0, i, width, i);
+            g.drawString(Integer.toString(-(hcount - hlines/2)), width/2 + 10, i);
+            if(hlines == hcount*2){
+                //if the line is in the middle then make it appear thicker as an axis
+                vMidpoint = i;
+                g.drawLine(0, i+1, width, i+1);
+                g.drawLine(0, i-1, width, i-1);
+            }
+            hcount++;
+        }
+        for(i = 0;i < width;i = i+spacing){
+            //draws vertical line
+            g.drawLine(i, 0, i, height);
+            g.drawString(Integer.toString(vcount - vlines/2), i, height/2 + 20);
+            if(vlines == vcount*2){
+                //if the line is in the middle make it appear thicker as an axis
+                hMidpoint = i;
+                g.drawLine(i+1, 0, i+1, height);
+                g.drawLine(i-1, 0, i-1, height);
+            }
+            vcount++;
         }
     }
 

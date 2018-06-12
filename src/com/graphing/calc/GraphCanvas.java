@@ -24,7 +24,7 @@ public class GraphCanvas extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        graph.drawGrid(g);
+        poly.drawGrid(g);
         g.setColor(Color.red);
         if(parentFunction.equals("Linear")) {
             poly.plotPoints(coef1, coef2);
