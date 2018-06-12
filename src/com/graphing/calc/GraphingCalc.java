@@ -174,7 +174,6 @@ public class GraphingCalc extends JFrame {
         coefs.add(c3);
 
         rtnBtn.setVisible(true);
-        ;
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -365,6 +364,8 @@ public class GraphingCalc extends JFrame {
                 }
                 setExtendedState(JFrame.ICONIFIED);
                 setExtendedState(JFrame.NORMAL);
+            } else if (e.getSource() == clrBtn) {
+
             }
         }
     }
