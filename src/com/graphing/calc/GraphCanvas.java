@@ -18,10 +18,14 @@ public class GraphCanvas extends JPanel {
         g.setColor(Color.red);
 
         int count = 0;
-        for(int i = 0; i < count; i++){
-            if((graph.getyPoints(i) > 0 && graph.getyPoints(i) < graph.getHeight()) && (graph.gety2Points(i) > 0 && graph.gety2Points(i) < graph.getHeight())){
-                g.drawLine(i, graph.getyPoints(i), i - 1, graph.gety2Points(i));
+            for(int i = 0; i < count; i++){
+                if((graph.getyPoints(i) > 0 && graph.getyPoints(i) < graph.getHeight()) && (graph.gety2Points(i) > 0 && graph.gety2Points(i) < graph.getHeight())){
+                    g.drawLine(i, graph.getyPoints(i), i - 1, graph.gety2Points(i));
+                }
             }
+            if(count < graph.getWidth() ){
+                count++;
+                repaint();
         }
     }
 }

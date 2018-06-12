@@ -3,7 +3,8 @@ package com.graphing.calc;
 public class Polynomial extends Equations {
 
     private int spacing, height, width, hMidpoint, vMidpoint;
-    private int[] yPoints, y2Points;
+    private int[] yPoints = new int [815];
+    private int[] y2Points = new int [815];
 
     public Polynomial(int c1, int c2, int c3, int c4) {
         super(c1, c2, c3, c4, 0);
