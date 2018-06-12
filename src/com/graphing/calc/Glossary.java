@@ -22,32 +22,34 @@ public class Glossary {
         int high = glossary.size() - 1;
         int mid = (low + high) / 2;
 
-        while (low <= high && !glossary.get(mid).equalsIgnoreCase(searchValue)) {
-
+        while (low <= high && !glossary.get(mid).startsWith(searchValue)) {
             if (glossary.get(mid).compareTo(searchValue) < 0) {
                 low = mid + 1;
             } else {
                 high = mid - 1;
             }
-
             mid = (low + high) / 2;
 
             if (low > high) {
-                mid = 0;
+                // NO RESULT
+                mid = -1;
             }
-
         }
         return mid;
 
     }
 
     public String defineWord(String word) {
-        int pos = binarySearch(glossary, word) + 1;
+        int pos = binarySearch(glossary, word);
         return glossary.get(pos);
     }
 
     public boolean checkWord(String word) {
-        return glossary.contains(word);
+        for (String term: glossary) {
+            if (term.startsWith(word))
+                return true;
+        }
+        return false;
     }
 
     public String toString(String word) {

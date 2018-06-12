@@ -14,7 +14,7 @@ public class GraphingCalc extends JFrame {
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
 
-    private String coef1,coef2,coef3,coef4;
+    private String searchValue, coef1,coef2,coef3,coef4;
 
     public GraphingCalc() {
         label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly ");
@@ -254,17 +254,16 @@ public class GraphingCalc extends JFrame {
                     e1.printStackTrace();
                 }
                 ImageIcon searchIcon = new ImageIcon("active-search.png");
-                String searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Glossary", JOptionPane.QUESTION_MESSAGE);
-                searchValue = searchValue.toLowerCase();
-                if (searchValue.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Please enter a search term!", "Graphing Calculator", JOptionPane.ERROR_MESSAGE, searchIcon);
-                }
-                else {
+                searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Glossary", JOptionPane.QUESTION_MESSAGE);
+                if (!searchValue.equals("")) {
                     assert dictionary != null;
-                    if (!searchValue.equals("") && dictionary.checkWord(searchValue))
+                    searchValue = searchValue.toLowerCase();
+                    if (dictionary.checkWord(searchValue))
                         JOptionPane.showMessageDialog(null, "<html><body><p style='width:300px;'>" + dictionary.defineWord(searchValue) + "</p></body></html>", "Definition: " + searchValue, JOptionPane.INFORMATION_MESSAGE, searchIcon);
                     else
-                        JOptionPane.showMessageDialog(null, "The word '" + searchValue + "' was not found in the dictionary!", "Graphing Calculator", JOptionPane.WARNING_MESSAGE, searchIcon);
+                        JOptionPane.showMessageDialog(null, "The word '" + searchValue + "' was not found in the dictionary!", "Glossary", JOptionPane.WARNING_MESSAGE, searchIcon);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please enter a search term!", "Glossary", JOptionPane.ERROR_MESSAGE, searchIcon);
                 }
             }
             else if(e.getSource() == rtnBtn) {
