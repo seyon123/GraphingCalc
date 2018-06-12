@@ -124,13 +124,13 @@ public class GraphingCalc extends JFrame {
         JPanel input = new JPanel();
         input.add(new JLabel("f(x) = ax^3 + bx^2 + cx + d"));
         JPanel coefs = new JPanel();
-        coefs.add(new JLabel("a"));
+        coefs.add(new JLabel("a: "));
         coefs.add(c1);
-        coefs.add(new JLabel("b"));
+        coefs.add(new JLabel("b: "));
         coefs.add(c2);
-        coefs.add(new JLabel("c"));
+        coefs.add(new JLabel("c: "));
         coefs.add(c3);
-        coefs.add(new JLabel("d"));
+        coefs.add(new JLabel("d: "));
         coefs.add(c4);
 
         mainPanel = new JPanel();
@@ -141,6 +141,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
         mainPanel.add(type);
         mainPanel.add(input);
+        mainPanel.add(coefs);
         mainPanel.add(submitPanel);
         mainPanel.add(canvas);
         mainPanel.add(southPanel);
@@ -164,7 +165,7 @@ public class GraphingCalc extends JFrame {
         JPanel input = new JPanel();
         input.add(new JLabel("f(x) = a^x"));
         JPanel coefs = new JPanel();
-        coefs.add(new JLabel("a"));
+        coefs.add(new JLabel("a: "));
         coefs.add(b);
 
         mainPanel = new JPanel();
@@ -208,19 +209,19 @@ public class GraphingCalc extends JFrame {
         type.add(new JLabel("Logarithmic Function:"));
         JPanel input = new JPanel();
         input.add(new JLabel("f(x) = a(log b(c(x + d)))+e"));
-        JPanel coefs = new JPanel();
-        coefs.add(new JLabel("a"));
-        coefs.add(c1);
-        coefs.add(new JLabel("b"));
-        coefs.add(c2);
-        coefs.add(new JLabel("c"));
-        coefs.add(c3);
-        coefs.add(new JLabel("d"));
-        coefs.add(c4);
-        coefs.add(new JLabel("e"));
-        coefs.add(c5);
         input.add(new JLabel("      Input Base: "));
         input.add(bs);
+        JPanel coefs = new JPanel();
+        coefs.add(new JLabel("a: "));
+        coefs.add(c1);
+        coefs.add(new JLabel("b: "));
+        coefs.add(c2);
+        coefs.add(new JLabel("c: "));
+        coefs.add(c3);
+        coefs.add(new JLabel("d: "));
+        coefs.add(c4);
+        coefs.add(new JLabel("e: "));
+        coefs.add(c5);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
