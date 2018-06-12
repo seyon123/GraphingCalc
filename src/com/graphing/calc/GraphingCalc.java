@@ -2,8 +2,9 @@ package com.graphing.calc;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class GraphingCalc extends JFrame {
 
@@ -11,7 +12,7 @@ public class GraphingCalc extends JFrame {
     private JLabel label1,label2;
     private JPanel mainPanel, northPanel, southPanel, submitPanel;
     private JButton enterButton, infoBtn, rtnBtn, ftnSubmit, clrBtn;
-    private JTextField c1, c2, c3, c4, c5, b, bs;
+    private JTextField c1, c2, c3, c4, c5;
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
 
@@ -237,13 +238,10 @@ public class GraphingCalc extends JFrame {
         c3 = new JTextField(2);
         c4 = new JTextField(2);
         c5 = new JTextField(2);
-        bs = new JTextField("10", 2);
         JPanel type = new JPanel();
         type.add(new JLabel("Logarithmic Function:"));
         JPanel input = new JPanel();
         input.add(new JLabel("f(x) = a(log b(c(x + d)))+e"));
-        input.add(new JLabel("      Input Base: "));
-        input.add(bs);
         JPanel coefs = new JPanel();
         coefs.add(new JLabel("a: "));
         coefs.add(c1);
