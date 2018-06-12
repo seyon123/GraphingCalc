@@ -1,13 +1,9 @@
 package com.graphing.calc;
 
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.awt.event.*;
+import java.io.*;
 
 public class GraphingCalc extends JFrame {
 
@@ -75,7 +71,7 @@ public class GraphingCalc extends JFrame {
         label1.setAlignmentX(CENTER_ALIGNMENT);
 
         String[] functionList = {"-- Select Function --", "Polynomial", "Exponential",  "Logarithmic",};
-        chooseFunction = new JComboBox(functionList);
+        chooseFunction = new JComboBox<>(functionList);
         chooseFunction.addActionListener(new ButtonListener());
         chooseFunction.setPreferredSize(new Dimension(200, 30));
         chooseFunction.setMaximumSize(new Dimension(200, 30));
@@ -271,13 +267,13 @@ public class GraphingCalc extends JFrame {
                         JOptionPane.showMessageDialog(null, "The word '" + searchValue + "' was not found in the dictionary!", "Graphing Calculator", JOptionPane.WARNING_MESSAGE, searchIcon);
                 }
             }
-            else if(e.getSource() == rtnBtn){
+            else if(e.getSource() == rtnBtn) {
                 dispose();
                 new GraphingCalc();
             }
-            else if(e.getSource() == ftnSubmit){
-
-            }
+//            else if(e.getSource() == ftnSubmit) {
+//
+//            }
         }
     }
 }
