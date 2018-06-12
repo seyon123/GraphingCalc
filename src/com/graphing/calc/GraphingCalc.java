@@ -255,7 +255,7 @@ public class GraphingCalc extends JFrame {
                 String searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Glossary", JOptionPane.QUESTION_MESSAGE);
                 searchValue = searchValue.toLowerCase();
                 if (!searchValue.equals("") && dictionary.checkWord(searchValue))
-                    JOptionPane.showMessageDialog(null, dictionary.defineWord(searchValue), "Definition: " + searchValue, JOptionPane.INFORMATION_MESSAGE, searchIcon);
+                    JOptionPane.showMessageDialog(null, "<html><body><p style='width:300px;'>" + dictionary.defineWord(searchValue) + "</p></body></html>", "Definition: " + searchValue, JOptionPane.INFORMATION_MESSAGE, searchIcon);
                 else
                     JOptionPane.showMessageDialog(null, "The word '" + searchValue + "' was not found in the dictionary!", "Graphing Calculator", JOptionPane.WARNING_MESSAGE, searchIcon);
             }
