@@ -1,5 +1,3 @@
---term--
---definition--
 function
 The function is a general relation between a set of input values (domain) and corresponding set of output values (co-domain). It relates each element of a set (domain) with exactly one element of another set (co-domain). Every element in domain must have a corresponding value in co-domain. A function is single valued. It can't give two or more output values for the same input.
 exponential

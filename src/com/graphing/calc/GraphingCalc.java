@@ -1,5 +1,8 @@
 package com.graphing.calc;
 
+import com.sun.istack.internal.NotNull;
+import com.sun.istack.internal.Nullable;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -232,16 +235,19 @@ public class GraphingCalc extends JFrame {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == submitButton) {
                 String function = (String) chooseFunction.getSelectedItem();
-                switch (function) {
-                    case "Polynomial":
-                        polynomialScreen();
-                        break;
-                    case "Exponential":
-                        exponentialScreen();
-                        break;
-                    case "Logarithmic":
-                        logarithmicScreen();
-                        break;
+                assert function != null;
+                    switch (function) {
+                        case "Polynomial":
+                            polynomialScreen();
+                            break;
+                        case "Exponential":
+                            exponentialScreen();
+                            break;
+                        case "Logarithmic":
+                            logarithmicScreen();
+                            break;
+                        default:
+                            break;
                 }
             }
             else if (e.getSource() == infoBtn) {
@@ -254,10 +260,16 @@ public class GraphingCalc extends JFrame {
                 ImageIcon searchIcon = new ImageIcon("active-search.png");
                 String searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Glossary", JOptionPane.QUESTION_MESSAGE);
                 searchValue = searchValue.toLowerCase();
-                if (!searchValue.equals("") && dictionary.checkWord(searchValue))
-                    JOptionPane.showMessageDialog(null, "<html><body><p style='width:300px;'>" + dictionary.defineWord(searchValue) + "</p></body></html>", "Definition: " + searchValue, JOptionPane.INFORMATION_MESSAGE, searchIcon);
-                else
-                    JOptionPane.showMessageDialog(null, "The word '" + searchValue + "' was not found in the dictionary!", "Graphing Calculator", JOptionPane.WARNING_MESSAGE, searchIcon);
+                if (searchValue.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please enter a search term!", "Graphing Calculator", JOptionPane.ERROR_MESSAGE, searchIcon);
+                }
+                else {
+                    assert dictionary != null;
+                    if (!searchValue.equals("") && dictionary.checkWord(searchValue))
+                        JOptionPane.showMessageDialog(null, "<html><body><p style='width:300px;'>" + dictionary.defineWord(searchValue) + "</p></body></html>", "Definition: " + searchValue, JOptionPane.INFORMATION_MESSAGE, searchIcon);
+                    else
+                        JOptionPane.showMessageDialog(null, "The word '" + searchValue + "' was not found in the dictionary!", "Graphing Calculator", JOptionPane.WARNING_MESSAGE, searchIcon);
+                }
             }
             else if(e.getSource() == rtnBtn){
                 dispose();

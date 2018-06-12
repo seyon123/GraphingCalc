@@ -33,7 +33,7 @@ public class Glossary {
             mid = (low + high) / 2;
 
             if (low > high) {
-                mid = -1;
+                mid = 0;
             }
 
         }
@@ -42,7 +42,6 @@ public class Glossary {
     }
 
     public String defineWord(String word) {
-        //int pos = glossary.indexOf(word) + 1;
         int pos = binarySearch(glossary, word) + 1;
         return glossary.get(pos);
     }
