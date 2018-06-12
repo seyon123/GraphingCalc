@@ -2,7 +2,8 @@ package com.graphing.calc;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GraphingCalc extends JFrame {
 
@@ -14,10 +15,6 @@ public class GraphingCalc extends JFrame {
     private ImageIcon infoImg, returnImg;
 
     private String coef1,coef2,coef3,coef4;
-
-    public static void main (String [] args) {
-        new GraphingCalc();
-    }
 
     public GraphingCalc() {
         label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly ");
@@ -63,6 +60,10 @@ public class GraphingCalc extends JFrame {
                 }
             }
         });
+    }
+
+    public static void main(String[] args) {
+        new GraphingCalc();
     }
 
     private void mainScreen(){
