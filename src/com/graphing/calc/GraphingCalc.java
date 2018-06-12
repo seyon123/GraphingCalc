@@ -356,11 +356,11 @@ public class GraphingCalc extends JFrame {
                         canvas.setPreferredSize(new Dimension(400, 300));
                         mainPanel.add(canvas);
                     }
-                }
-                int count = 0;
-                if (count < poly.getWidth()) {
-                    count++;
-                    canvas.repaint();
+                    int count = 0;
+                    if (count < poly.getWidth()) {
+                        count++;
+                        canvas.repaint();
+                    }
                 }
                 setExtendedState(JFrame.ICONIFIED);
                 setExtendedState(JFrame.NORMAL);
