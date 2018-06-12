@@ -12,7 +12,7 @@ public class GraphingCalc extends JFrame {
     private JLabel label1,label2;
     private JPanel mainPanel, northPanel, southPanel, submitPanel;
     private JButton enterButton, infoBtn, rtnBtn, ftnSubmit, clrBtn;
-    private JTextField c1, c2, c3, c4, c5;
+    private JTextField c1, c2, c3, c4, c5, b;
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
 
