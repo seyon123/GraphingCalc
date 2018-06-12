@@ -12,11 +12,13 @@ public class GraphingCalc extends JFrame {
     private JLabel label1,label2;
     private JPanel mainPanel, northPanel, southPanel, submitPanel;
     private JButton enterButton, infoBtn, rtnBtn, ftnSubmit, clrBtn;
-    private JTextField c1, c2, c3, c4, c5;
+    private JTextField c1, c2, c3, c4, c5, b;
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
 
     private Polynomial poly = new Polynomial();
+    private Exponential expo = new Exponential();
+    private Logarithmic log = new Logarithmic();
 
     public String parentFunction, searchValue, coef1, coef2, coef3, coef4, coef5, base;
 
@@ -376,7 +378,7 @@ public class GraphingCalc extends JFrame {
                     } else
                         JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
                     int count = 0;
-                    if (count < poly.getWidth()) {
+                    if (count < expo.getWidth()) {
                         count++;
                         canvas.repaint();
                     }
@@ -395,7 +397,7 @@ public class GraphingCalc extends JFrame {
                     } else
                         JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
                     int count = 0;
-                    if (count < poly.getWidth()) {
+                    if (count < log.getWidth()) {
                         count++;
                         canvas.repaint();
                     }
