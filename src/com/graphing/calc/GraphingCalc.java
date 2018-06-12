@@ -131,6 +131,7 @@ public class GraphingCalc extends JFrame {
         coefs.add(c2);
 
         rtnBtn.setVisible(true);
+        label2.setText("*Please click 'Clear' before entering a new set of data");
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
