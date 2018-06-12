@@ -4,12 +4,11 @@ import java.util.*;
 import java.io.*;
 
 public class Glossary {
-
-    private Scanner inputFile;
+    
     private ArrayList<String> glossary;
 
     public Glossary() throws IOException {
-        inputFile = new Scanner(new File("dictionary.txt"));
+        Scanner inputFile = new Scanner(new File("dictionary.txt"));
         glossary = new ArrayList<>();
         while (inputFile.hasNextLine()) {
             glossary.add(inputFile.nextLine());
@@ -17,7 +16,7 @@ public class Glossary {
         inputFile.close();
     }
 
-    public static int binarySearch(ArrayList<String> glossary, String searchValue) {
+    private int binarySearch(ArrayList<String> glossary, String searchValue) {
 
         int low = 0;
         int high = glossary.size() - 1;
