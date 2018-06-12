@@ -14,7 +14,7 @@ public class Polynomial extends Equations {
 
     public Polynomial (){
         //default dimensions
-        spacing = 40;
+        spacing = 30;
         height = 325;
         width = 815;
     }
@@ -77,7 +77,7 @@ public class Polynomial extends Equations {
 
 
     public void drawGrid(Graphics g){
-        //determines nessecary amount of lines
+        //determines necessary amount of lines
         int vlines = width/spacing;
         int hlines = height/spacing;
         if (vlines % 2 != 0){
