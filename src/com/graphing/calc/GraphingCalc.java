@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class GraphingCalc extends JFrame {
 
-    private GraphCanvasTest canvas;
+    private GraphCanvas canvas;
     private JLabel label1,label2;
     private JPanel mainPanel, northPanel, southPanel, submitPanel;
     private JButton submitButton, infoBtn, rtnBtn, ftnSubmit;
@@ -46,7 +46,7 @@ public class GraphingCalc extends JFrame {
         southPanel.add(rtnBtn, BorderLayout.WEST);
         southPanel.setOpaque(true);
 
-        canvas = new GraphCanvasTest();
+        canvas = new GraphCanvas();
         canvas.setSize(400, 325);
         canvas.setPreferredSize(new Dimension(400, 325));
 

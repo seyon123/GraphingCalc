@@ -10,9 +10,9 @@ public class GraphLayout {
     private int[] y2Points = new int[1920];
     GraphLayout(){
         //default dimensions
-        spacing = 50;
-        height = 480;
-        width = 640;
+        spacing = 40;
+        height = 325;
+        width = 815;
     }
     GraphLayout(int spaces, int high, int wide){
         spacing = spaces;
