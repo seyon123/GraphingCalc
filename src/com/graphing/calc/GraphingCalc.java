@@ -254,16 +254,20 @@ public class GraphingCalc extends JFrame {
                     e1.printStackTrace();
                 }
                 ImageIcon searchIcon = new ImageIcon("active-search.png");
-                searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Glossary", JOptionPane.QUESTION_MESSAGE);
-                if (!searchValue.equals("")) {
-                    assert dictionary != null;
-                    searchValue = searchValue.toLowerCase();
-                    if (dictionary.checkWord(searchValue))
-                        JOptionPane.showMessageDialog(null, "<html><body><p style='width:300px;'>" + dictionary.defineWord(searchValue) + "</p></body></html>", "Definition: " + searchValue, JOptionPane.INFORMATION_MESSAGE, searchIcon);
-                    else
-                        JOptionPane.showMessageDialog(null, "The word '" + searchValue + "' was not found in the dictionary!", "Glossary", JOptionPane.WARNING_MESSAGE, searchIcon);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Please enter a search term!", "Glossary", JOptionPane.ERROR_MESSAGE, searchIcon);
+                searchValue = (String) JOptionPane.showInputDialog(null, "Search for what you need help with:", "Glossary", JOptionPane.INFORMATION_MESSAGE, searchIcon, null, null);
+                try {
+                    if (!searchValue.equals("")) {
+                        assert dictionary != null;
+                        searchValue = searchValue.toLowerCase();
+                        if (dictionary.checkWord(searchValue))
+                            JOptionPane.showMessageDialog(null, "<html><body><p style='width:300px;'>" + dictionary.defineWord(searchValue) + "</p></body></html>", "Definition: " + searchValue, JOptionPane.INFORMATION_MESSAGE, searchIcon);
+                        else
+                            JOptionPane.showMessageDialog(null, "The word '" + searchValue + "' was not found in the dictionary!", "Glossary", JOptionPane.WARNING_MESSAGE, searchIcon);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please enter a search term!", "Glossary", JOptionPane.ERROR_MESSAGE, searchIcon);
+                    }
+                } catch (NullPointerException el) {
+                    el.printStackTrace();
                 }
             }
             else if(e.getSource() == rtnBtn) {
