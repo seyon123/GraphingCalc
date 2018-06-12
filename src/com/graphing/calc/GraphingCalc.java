@@ -2,15 +2,16 @@ package com.graphing.calc;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class GraphingCalc extends JFrame {
 
     private GraphCanvas canvas;
     private JLabel label1,label2;
     private JPanel mainPanel, northPanel, southPanel, submitPanel;
-    private JButton submitButton, infoBtn, rtnBtn, ftnSubmit;
+    private JButton submitButton, infoBtn, rtnBtn, enterBtn, clrBtn;
     private JTextField c1, c2, c3, c4, c5, b, bs;
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
@@ -33,11 +34,15 @@ public class GraphingCalc extends JFrame {
         rtnBtn = new JButton(returnImg);
         rtnBtn.addActionListener(new ButtonListener());
 
-        ftnSubmit = new JButton("Submit");
-        ftnSubmit.addActionListener(new ButtonListener());
+        enterBtn = new JButton("Submit");
+        enterBtn.addActionListener(new ButtonListener());
+
+        clrBtn = new JButton("Clear");
+        clrBtn.addActionListener(new ButtonListener());
 
         submitPanel = new JPanel();
-        submitPanel.add(ftnSubmit);
+        submitPanel.add(enterBtn);
+        submitPanel.add(clrBtn);
 
         northPanel = new JPanel(new BorderLayout());
         northPanel.add(infoBtn, BorderLayout.EAST);
@@ -47,10 +52,6 @@ public class GraphingCalc extends JFrame {
         southPanel.add(label2,BorderLayout.EAST);
         southPanel.add(rtnBtn, BorderLayout.WEST);
         southPanel.setOpaque(true);
-
-//        canvas = new GraphCanvas();
-//        canvas.setSize(400, 300);
-//        canvas.setPreferredSize(new Dimension(400, 300));
 
         mainScreen();
 
@@ -85,6 +86,8 @@ public class GraphingCalc extends JFrame {
         submitButton.addActionListener(new ButtonListener());
         submitButton.setMaximumSize(new Dimension(100, 30));
         submitButton.setAlignmentX(CENTER_ALIGNMENT);
+
+        rtnBtn.setVisible(false);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -125,6 +128,8 @@ public class GraphingCalc extends JFrame {
         coefs.add(new JLabel("b: "));
         coefs.add(c2);
 
+        rtnBtn.setVisible(true);
+
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820, 600);
@@ -135,7 +140,6 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(input);
         mainPanel.add(coefs);
         mainPanel.add(submitPanel);
-        //mainPanel.add(canvas);
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -169,6 +173,9 @@ public class GraphingCalc extends JFrame {
         coefs.add(new JLabel("c: "));
         coefs.add(c3);
 
+        rtnBtn.setVisible(true);
+        ;
+
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
@@ -179,7 +186,6 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(input);
         mainPanel.add(coefs);
         mainPanel.add(submitPanel);
-        //mainPanel.add(canvas);
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -205,6 +211,8 @@ public class GraphingCalc extends JFrame {
         coefs.add(new JLabel("a: "));
         coefs.add(b);
 
+        rtnBtn.setVisible(true);
+
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
@@ -215,7 +223,6 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(input);
         mainPanel.add(coefs);
         mainPanel.add(submitPanel);
-        //mainPanel.add(canvas);
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -261,6 +268,8 @@ public class GraphingCalc extends JFrame {
         coefs.add(new JLabel("e: "));
         coefs.add(c5);
 
+        rtnBtn.setVisible(true);
+
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
@@ -271,7 +280,6 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(input);
         mainPanel.add(coefs);
         mainPanel.add(submitPanel);
-        mainPanel.add(canvas);
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -337,8 +345,7 @@ public class GraphingCalc extends JFrame {
             else if(e.getSource() == rtnBtn) {
                 dispose();
                 new GraphingCalc();
-            }
-            else if(e.getSource() == ftnSubmit) {
+            } else if (e.getSource() == enterBtn) {
                 if (parentFunction.equals("Linear")) {
                     coef1 = c1.getText();
                     coef2 = c2.getText();

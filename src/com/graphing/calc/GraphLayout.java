@@ -8,6 +8,7 @@ public class GraphLayout {
     private int vMidpoint;
     private int[] yPoints = new int[1920];
     private int[] y2Points = new int[1920];
+
     GraphLayout(){
         //default dimensions
         spacing = 40;
