@@ -2,8 +2,9 @@ package com.graphing.calc;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class GraphingCalc extends JFrame {
 
@@ -189,14 +190,12 @@ public class GraphingCalc extends JFrame {
     private void logarithmicScreen(){
 
 
-        JTextField c = new JTextField(2);
         JTextField b = new JTextField("10", 2);
         JTextField i = new JTextField(3);
         JPanel type = new JPanel();
         type.add(new JLabel("Logarithmic Function:"));
         JPanel input = new JPanel();
         input.add(new JLabel("f(x) = "));
-        input.add(c);
         input.add(new JLabel("log("));
         input.add(i);
         input.add(new JLabel("x)              "));

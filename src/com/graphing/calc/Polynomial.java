@@ -11,7 +11,7 @@ public class Polynomial extends Equations {
     }
 
     public int highestDegree() {
-        return 4;
+        return 3;
     }
 
     public String Symmetry() {

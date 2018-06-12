@@ -62,6 +62,6 @@ public class Equations {
     }
 
     public String toString() {
-        return "Equations{}";
+        return "Coefficient 1: " + coef1 + "Coefficient 2: " + coef2 + "Coefficient 3: " + coef3 + "Coefficient 4: " + coef4 + "Base: " + base;
     }
 }
