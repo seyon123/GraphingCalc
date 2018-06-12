@@ -2,9 +2,8 @@ package com.graphing.calc;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.awt.event.*;
+import java.io.*;
 
 public class GraphingCalc extends JFrame {
 
@@ -344,12 +343,13 @@ public class GraphingCalc extends JFrame {
             else if(e.getSource() == rtnBtn) {
                 dispose();
                 new GraphingCalc();
-            } else if (e.getSource() == enterBtn) {
+            }
+            else if (e.getSource() == enterBtn) {
                 if (parentFunction.equals("Linear")) {
                     coef1 = c1.getText();
                     coef2 = c2.getText();
                     if (coef1.equals("") || coef2.equals(""))
-                        JOptionPane.showMessageDialog(null, "Please input the coefficients!", "No Input Found", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
                     else {
                         canvas = new GraphCanvas(parentFunction, coef1, coef2);
                         canvas.setSize(400, 300);
@@ -364,7 +364,8 @@ public class GraphingCalc extends JFrame {
                 }
                 setExtendedState(JFrame.ICONIFIED);
                 setExtendedState(JFrame.NORMAL);
-            } else if (e.getSource() == clrBtn) {
+            }
+            else if (e.getSource() == clrBtn) {
                 switch (parentFunction) {
                     case "Linear":
                         linearScreen();
