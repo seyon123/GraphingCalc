@@ -48,9 +48,9 @@ public class GraphingCalc extends JFrame {
         southPanel.add(rtnBtn, BorderLayout.WEST);
         southPanel.setOpaque(true);
 
-        canvas = new GraphCanvas();
-        canvas.setSize(400, 300);
-        canvas.setPreferredSize(new Dimension(400, 300));
+//        canvas = new GraphCanvas();
+//        canvas.setSize(400, 300);
+//        canvas.setPreferredSize(new Dimension(400, 300));
 
         mainScreen();
 
@@ -135,7 +135,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(input);
         mainPanel.add(coefs);
         mainPanel.add(submitPanel);
-        mainPanel.add(canvas);
+        //mainPanel.add(canvas);
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -179,7 +179,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(input);
         mainPanel.add(coefs);
         mainPanel.add(submitPanel);
-        mainPanel.add(canvas);
+        //mainPanel.add(canvas);
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -215,7 +215,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(input);
         mainPanel.add(coefs);
         mainPanel.add(submitPanel);
-        mainPanel.add(canvas);
+        //mainPanel.add(canvas);
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -340,7 +340,15 @@ public class GraphingCalc extends JFrame {
                 if (parentFunction.equals("Linear")) {
                     coef1 = c1.getText();
                     coef2 = c2.getText();
-                    poly.plotPoints(Integer.parseInt(coef1), Integer.parseInt(coef2));
+                    canvas = new GraphCanvas(parentFunction, coef1, coef2);
+                    canvas.setSize(400, 300);
+                    canvas.setPreferredSize(new Dimension(400, 300));
+                    mainPanel.add(canvas);
+                }
+                int count = 0;
+                if(count < poly.getWidth() ){
+                    count++;
+                    canvas.repaint();
                 }
             }
         }

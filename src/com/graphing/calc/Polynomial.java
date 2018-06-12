@@ -23,6 +23,19 @@ public class Polynomial extends Equations {
         width = wide;
     }
 
+    public int getHeight(){
+        return height;
+    }
+    public int getWidth(){
+        return width;
+    }
+    public int getyPoints(int i){
+        return yPoints[i];
+    }
+    public int gety2Points(int i){
+        return y2Points[i];
+    }
+
     public void plotPoints(double a, double b){
         //graphs in slope y intercept form
         for(int i = 0;i < width;i++){
