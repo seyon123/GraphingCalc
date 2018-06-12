@@ -9,6 +9,13 @@ public class Polynomial extends Equations {
         super(c1, c2, c3, c4, 0);
     }
 
+    public Polynomial (){
+        //default dimensions
+        spacing = 40;
+        height = 325;
+        width = 815;
+    }
+
     public Polynomial(int spaces, int high, int wide){
         spacing = spaces;
         height = high;

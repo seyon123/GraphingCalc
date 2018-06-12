@@ -15,7 +15,10 @@ public class GraphingCalc extends JFrame {
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
 
-    private String searchValue, coef1, coef2, coef3, coef4, coef5;
+    private Polynomial poly = new Polynomial();
+
+    public String parentFunction, searchValue;
+    public int coef1, coef2, coef3, coef4, coef5, base;
 
     public GraphingCalc() {
         label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly ");
@@ -112,13 +115,13 @@ public class GraphingCalc extends JFrame {
     private void polynomialScreen(){
 
         JTextField c1 = new JTextField(2);
-        coef1 = c1.getText();
+        coef1 = Integer.parseInt(c1.getText());
         JTextField c2 = new JTextField(2);
-        coef2 = c2.getText();
+        coef2 = Integer.parseInt(c2.getText());
         JTextField c3 = new JTextField(2);
-        coef3 = c3.getText();
+        coef3 = Integer.parseInt(c3.getText());
         JTextField c4 = new JTextField(2);
-        coef4 = c4.getText();
+        coef4 = Integer.parseInt(c4.getText());
         JPanel type = new JPanel();
         type.add(new JLabel("Polynomial Function:"));
         JPanel input = new JPanel();
@@ -160,6 +163,7 @@ public class GraphingCalc extends JFrame {
     private void exponentialScreen(){
 
         JTextField b = new JTextField(2);
+        base = Integer.parseInt(b.getText());
         JPanel type = new JPanel();
         type.add(new JLabel("Exponential Function:"));
         JPanel input = new JPanel();
@@ -195,16 +199,17 @@ public class GraphingCalc extends JFrame {
     private void logarithmicScreen(){
 
         JTextField c1 = new JTextField(2);
-        coef1 = c1.getText();
+        coef1 = Integer.parseInt(c1.getText());
         JTextField c2 = new JTextField(2);
-        coef2 = c2.getText();
+        coef2 = Integer.parseInt(c2.getText());
         JTextField c3 = new JTextField(2);
-        coef3 = c3.getText();
+        coef3 = Integer.parseInt(c3.getText());
         JTextField c4 = new JTextField(2);
-        coef4 = c4.getText();
+        coef4 = Integer.parseInt(c4.getText());
         JTextField c5 = new JTextField(2);
-        coef5 = c5.getText();
+        coef5 = Integer.parseInt(c5.getText());
         JTextField bs = new JTextField("10", 2);
+        base = Integer.parseInt(bs.getText());
         JPanel type = new JPanel();
         type.add(new JLabel("Logarithmic Function:"));
         JPanel input = new JPanel();
@@ -251,9 +256,9 @@ public class GraphingCalc extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == submitButton) {
-                String function = (String) chooseFunction.getSelectedItem();
-                assert function != null;
-                    switch (function) {
+                parentFunction = (String) chooseFunction.getSelectedItem();
+                assert parentFunction != null;
+                    switch (parentFunction) {
                         case "Polynomial":
                             polynomialScreen();
                             break;
@@ -295,9 +300,11 @@ public class GraphingCalc extends JFrame {
                 dispose();
                 new GraphingCalc();
             }
-//            else if(e.getSource() == ftnSubmit) {
-//
-//            }
+            else if(e.getSource() == ftnSubmit) {
+                if (parentFunction.equals("Polynomial")) {
+                    poly.plotPoints(coef1, coef2, coef3);
+                }
+            }
         }
     }
 }
