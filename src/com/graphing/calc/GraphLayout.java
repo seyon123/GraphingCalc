@@ -46,109 +46,43 @@ public class GraphLayout {
             width = widthin;
         }       
     }
-    public void plotPoints(double a, double b){
-        //graphs in slope y intercept form
-        for(int i = 0;i < width;i++){
-            //finds the relative x coordinate based on the origin and spacing of the graph
-            double x = (i - hMidpoint)/(double)spacing;
-            double x2 = x - 1/(double)spacing;
-            //transformations
-            double xChange = a*x + b;
-            double x2Change = a*x2 + b;
-            //checks if the number is valid and then changes the coorinates back to terms of the graph
-            if(!Double.isNaN(xChange) && !Double.isNaN(x2Change) && !Double.isInfinite(x2Change) && !Double.isInfinite(xChange)){
-                int y = -(int)(xChange*spacing) + vMidpoint;
-                int y2 = -(int)(x2Change*spacing) + vMidpoint; 
-                yPoints[i] = y;
-                y2Points[i] = y2;
-            }
-        }
-    }
-    public void plotPoints(double a){
-        //graphs in exponential form
-        for(int i = 0;i < width;i++){
-        //finds the relative x coordinate based on the origin and spacing of the graph
-            double x = (i - hMidpoint)/(double)spacing;
-            double x2 = x - 1/(double)spacing;
-            double xChange = Math.pow(a, x);
-            double x2Change = Math.pow(a, x2);
-            //checks if the number is valid and then changes the coorinates back to terms of the graph
-            if(!Double.isNaN(xChange) && !Double.isNaN(x2Change) && !Double.isInfinite(x2Change) && !Double.isInfinite(xChange)){
-                int y = -(int)(xChange*spacing) + vMidpoint;
-                int y2 = -(int)(x2Change*spacing) + vMidpoint; 
-                yPoints[i] = y;
-                y2Points[i] = y2;
-            }
-        }
-    }
-    public void plotPoints(double a, double b, double c, double d, double e, double f){
-        //graphs a rational function
-        for(int i = 0;i < width;i++){
-            //finds the relative x coordinate based on the origin and spacing of the graph
-            double x = (i - hMidpoint)/(double)spacing;
-            double x2 = x - 1/(double)spacing;
-            double xChange = (a*x*x + b*x + c)/(d*x*x + e*x + f);
-            double x2Change = (a*x2*x2 + b*x2 + c)/(d*x2*x2 + e*x2 + f);
-            //checks if the number is valid and then changes the coorinates back to terms of the graph
-            if(!Double.isNaN(xChange) && !Double.isNaN(x2Change) && !Double.isInfinite(x2Change) && !Double.isInfinite(xChange)){
-                int y = -(int)(xChange*spacing) + vMidpoint;
-                int y2 = -(int)(x2Change*spacing) + vMidpoint; 
-                yPoints[i] = y;
-                y2Points[i] = y2;
-            }
-        }
-    }
-    public void plotPoints(double a, double b, double c, double d, double e){
-        //graphs a logarithmic function
-        for(int i = 0;i < width;i++){
-            //finds the relative x coordinate based on the origin and spacing of the graph
-            double x = (i - hMidpoint)/(double)spacing;
-            double x2 = x - 1/(double)spacing;
-            double xChange = a*((Math.log(c*(x+d)))/(Math.log(b))) + e;
-            double x2Change = a*((Math.log(c*(x2+d)))/(Math.log(b))) + e;
-            //checks if the number is valid and then changes the coorinates back to terms of the graph
-            if(!Double.isNaN(xChange) && !Double.isNaN(x2Change) && !Double.isInfinite(x2Change) && !Double.isInfinite(xChange)){
-                int y = -(int)(xChange*spacing) + vMidpoint;
-                int y2 = -(int)(x2Change*spacing) + vMidpoint; 
-                yPoints[i] = y;
-                y2Points[i] = y2;
-            }
-        }
-    }
-    public void plotPoints(double a, double b, double c, double d){
-        //graphs a sinusodial function
-        for(int i = 0;i < width;i++){
-            //finds the relative x coordinate based on the origin and spacing of the graph
-            double x = (i - hMidpoint)/(double)spacing;
-            double x2 = x - 1/(double)spacing;
-            double xChange = a*(Math.sin(b*(x + c))) + d;
-            double x2Change = a*(Math.sin(b*(x2 + c))) + d;
-            //checks if the number is valid and then changes the coorinates back to terms of the graph
-            if(!Double.isNaN(xChange) && !Double.isNaN(x2Change) && !Double.isInfinite(x2Change) && !Double.isInfinite(xChange)){
-                int y = -(int)(xChange*spacing) + vMidpoint;
-                int y2 = -(int)(x2Change*spacing) + vMidpoint; 
-                yPoints[i] = y;
-                y2Points[i] = y2;
-            }
-        }
-    }
-    public void plotPoints(double a, double b, double c){
-        //graphs in quadratic vertex form
-        for(int i = 0;i < width;i++){
-            //finds the relative x coordinate based on the origin and spacing of the graph
-            double x = (i - hMidpoint)/(double)spacing;
-            double x2 = x - 1/(double)spacing;
-            double xChange = a*Math.pow(x - b, 2) + c;
-            double x2Change = a*Math.pow(x2 - b, 2) + c;
-            //checks if the number is valid and then changes the coorinates back to terms of the graph
-            if(!Double.isNaN(xChange) && !Double.isNaN(x2Change) && !Double.isInfinite(x2Change) && !Double.isInfinite(xChange)){
-                int y = -(int)(xChange*spacing) + vMidpoint;
-                int y2 = -(int)(x2Change*spacing) + vMidpoint; 
-                yPoints[i] = y;
-                y2Points[i] = y2;
-            }
-        }
-    }
+
+//    public void plotPoints(double a, double b, double c, double d, double e, double f){
+//        //graphs a rational function
+//        for(int i = 0;i < width;i++){
+//            //finds the relative x coordinate based on the origin and spacing of the graph
+//            double x = (i - hMidpoint)/(double)spacing;
+//            double x2 = x - 1/(double)spacing;
+//            double xChange = (a*x*x + b*x + c)/(d*x*x + e*x + f);
+//            double x2Change = (a*x2*x2 + b*x2 + c)/(d*x2*x2 + e*x2 + f);
+//            //checks if the number is valid and then changes the coorinates back to terms of the graph
+//            if(!Double.isNaN(xChange) && !Double.isNaN(x2Change) && !Double.isInfinite(x2Change) && !Double.isInfinite(xChange)){
+//                int y = -(int)(xChange*spacing) + vMidpoint;
+//                int y2 = -(int)(x2Change*spacing) + vMidpoint;
+//                yPoints[i] = y;
+//                y2Points[i] = y2;
+//            }
+//        }
+//    }
+//
+//    public void plotPoints(double a, double b, double c, double d){
+//        //graphs a sinusodial function
+//        for(int i = 0;i < width;i++){
+//            //finds the relative x coordinate based on the origin and spacing of the graph
+//            double x = (i - hMidpoint)/(double)spacing;
+//            double x2 = x - 1/(double)spacing;
+//            double xChange = a*(Math.sin(b*(x + c))) + d;
+//            double x2Change = a*(Math.sin(b*(x2 + c))) + d;
+//            //checks if the number is valid and then changes the coorinates back to terms of the graph
+//            if(!Double.isNaN(xChange) && !Double.isNaN(x2Change) && !Double.isInfinite(x2Change) && !Double.isInfinite(xChange)){
+//                int y = -(int)(xChange*spacing) + vMidpoint;
+//                int y2 = -(int)(x2Change*spacing) + vMidpoint;
+//                yPoints[i] = y;
+//                y2Points[i] = y2;
+//            }
+//        }
+//    }
+
     public void drawGrid(Graphics g){
         //determines nessecary amount of lines
         int vlines = width/spacing;
