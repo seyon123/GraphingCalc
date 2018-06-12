@@ -100,7 +100,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(chooseFunction);
         mainPanel.add(Box.createRigidArea(new Dimension(820, 10)));
         mainPanel.add(submitButton);
-        mainPanel.add(Box.createRigidArea(new Dimension(820, 210)));
+        mainPanel.add(Box.createRigidArea(new Dimension(820, 220)));
         mainPanel.add(southPanel);
 
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
@@ -114,7 +114,7 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
-    private void LinearScreen() {
+    private void linearScreen() {
 
         c1 = new JTextField(2);
         c2 = new JTextField(2);
@@ -153,7 +153,7 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
-    private void QuadraticScreen() {
+    private void quadraticScreen() {
 
         c1 = new JTextField(2);
         coef1 = c1.getText();
@@ -300,10 +300,10 @@ public class GraphingCalc extends JFrame {
                 assert parentFunction != null;
                 switch (parentFunction) {
                     case "Linear":
-                        LinearScreen();
+                        linearScreen();
                         break;
                     case "Quadratic":
-                        QuadraticScreen();
+                        quadraticScreen();
                         break;
                     case "Exponential":
                         exponentialScreen();
@@ -358,14 +358,29 @@ public class GraphingCalc extends JFrame {
                     }
                 }
                 int count = 0;
-                if(count < poly.getWidth() ){
+                if (count < poly.getWidth()) {
                     count++;
                     canvas.repaint();
                 }
                 setExtendedState(JFrame.ICONIFIED);
                 setExtendedState(JFrame.NORMAL);
             } else if (e.getSource() == clrBtn) {
-
+                switch (parentFunction) {
+                    case "Linear":
+                        linearScreen();
+                        break;
+                    case "Quadratic":
+                        quadraticScreen();
+                        break;
+                    case "Exponential":
+                        exponentialScreen();
+                        break;
+                    case "Logarithmic":
+                        logarithmicScreen();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
