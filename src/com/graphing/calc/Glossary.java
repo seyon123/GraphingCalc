@@ -4,7 +4,7 @@ import java.util.*;
 import java.io.*;
 
 public class Glossary {
-    
+
     private ArrayList<String> glossary;
 
     public Glossary() throws IOException {
