@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class GraphingCalc extends JFrame {
 
@@ -244,7 +245,12 @@ public class GraphingCalc extends JFrame {
                 }
             }
             else if (e.getSource() == infoBtn) {
-                Glossary dictionary = new Glossary();
+                Glossary dictionary = null;
+                try {
+                    dictionary = new Glossary();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 ImageIcon searchIcon = new ImageIcon("active-search.png");
                 String searchValue = JOptionPane.showInputDialog(null, "Search for what you need help with:", "Glossary", JOptionPane.QUESTION_MESSAGE);
                 searchValue = searchValue.toLowerCase();
