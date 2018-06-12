@@ -15,7 +15,7 @@ public class GraphingCalc extends JFrame {
     private JComboBox  chooseFunction;
     private ImageIcon infoImg, returnImg;
 
-    private String searchValue, coef1,coef2,coef3,coef4;
+    private String searchValue, coef1, coef2, coef3, coef4, coef5;
 
     public GraphingCalc() {
         label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly ");
@@ -47,8 +47,8 @@ public class GraphingCalc extends JFrame {
         southPanel.setOpaque(true);
 
         canvas = new GraphCanvasTest();
-        canvas.setSize(400, 325);
-        canvas.setPreferredSize(new Dimension(400, 325));
+        canvas.setSize(400, 300);
+        canvas.setPreferredSize(new Dimension(400, 300));
 
         mainScreen();
 
@@ -122,14 +122,16 @@ public class GraphingCalc extends JFrame {
         JPanel type = new JPanel();
         type.add(new JLabel("Polynomial Function:"));
         JPanel input = new JPanel();
-        input.add(new JLabel("f(x) = "));
-        input.add(c1);
-        input.add(new JLabel("x"+ "³" + " + "));
-        input.add(c2);
-        input.add(new JLabel("x"+ "²" + " + "));
-        input.add(c3);
-        input.add(new JLabel("x" + " + "));
-        input.add(c4);
+        input.add(new JLabel("f(x) = ax^3 + bx^2 + cx + d"));
+        JPanel coefs = new JPanel();
+        coefs.add(new JLabel("a"));
+        coefs.add(c1);
+        coefs.add(new JLabel("b"));
+        coefs.add(c2);
+        coefs.add(new JLabel("c"));
+        coefs.add(c3);
+        coefs.add(new JLabel("d"));
+        coefs.add(c4);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -139,6 +141,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
         mainPanel.add(type);
         mainPanel.add(input);
+        mainPanel.add(coefs);
         mainPanel.add(submitPanel);
         mainPanel.add(canvas);
         mainPanel.add(southPanel);
@@ -160,9 +163,10 @@ public class GraphingCalc extends JFrame {
         JPanel type = new JPanel();
         type.add(new JLabel("Exponential Function:"));
         JPanel input = new JPanel();
-        input.add(new JLabel("f(x) = "));
-        input.add(b);
-        input.add(new JLabel("ˣ        ex. (bˣ)"));
+        input.add(new JLabel("f(x) = a^x"));
+        JPanel coefs = new JPanel();
+        coefs.add(new JLabel("a"));
+        coefs.add(b);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -172,6 +176,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
         mainPanel.add(type);
         mainPanel.add(input);
+        mainPanel.add(coefs);
         mainPanel.add(submitPanel);
         mainPanel.add(canvas);
         mainPanel.add(southPanel);
@@ -189,18 +194,34 @@ public class GraphingCalc extends JFrame {
 
     private void logarithmicScreen(){
 
-
-        JTextField b = new JTextField("10", 2);
-        JTextField i = new JTextField(3);
+        JTextField c1 = new JTextField(2);
+        coef1 = c1.getText();
+        JTextField c2 = new JTextField(2);
+        coef2 = c2.getText();
+        JTextField c3 = new JTextField(2);
+        coef3 = c3.getText();
+        JTextField c4 = new JTextField(2);
+        coef4 = c4.getText();
+        JTextField c5 = new JTextField(2);
+        coef5 = c5.getText();
+        JTextField bs = new JTextField("10", 2);
         JPanel type = new JPanel();
         type.add(new JLabel("Logarithmic Function:"));
         JPanel input = new JPanel();
-        input.add(new JLabel("f(x) = "));
-        input.add(new JLabel("log("));
-        input.add(i);
-        input.add(new JLabel("x)              "));
-        input.add(new JLabel("Input Base: "));
-        input.add(b);
+        input.add(new JLabel("f(x) = a(log b(c(x + d)))+e"));
+        JPanel coefs = new JPanel();
+        coefs.add(new JLabel("a"));
+        coefs.add(c1);
+        coefs.add(new JLabel("b"));
+        coefs.add(c2);
+        coefs.add(new JLabel("c"));
+        coefs.add(c3);
+        coefs.add(new JLabel("d"));
+        coefs.add(c4);
+        coefs.add(new JLabel("e"));
+        coefs.add(c5);
+        input.add(new JLabel("      Input Base: "));
+        input.add(bs);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -210,6 +231,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 90)));
         mainPanel.add(type);
         mainPanel.add(input);
+        mainPanel.add(coefs);
         mainPanel.add(submitPanel);
         mainPanel.add(canvas);
         mainPanel.add(southPanel);
