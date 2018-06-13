@@ -12,19 +12,21 @@ public class Logarithmic extends Equations {
         super(c1, c2, c3, c4, 0);
     }
 
+    // set initial values
     public Logarithmic (){
-        //default dimensions
         spacing = 30;
         height = 325;
         width = 815;
     }
 
+    // constructor with values
     public Logarithmic(int spaces, int high, int wide){
         spacing = spaces;
         height = high;
         width = wide;
     }
 
+    // get values
     public int getHeight(){
         return height;
     }
@@ -37,6 +39,8 @@ public class Logarithmic extends Equations {
     public int gety2Points(int i){
         return y2Points[i];
     }
+
+    // set values
     public void setHeight(int heightin){
         if(heightin > 0){
             height = heightin;
@@ -53,15 +57,16 @@ public class Logarithmic extends Equations {
         }
     }
 
+    // calculate points
     public void plotPoints(double a, double b, double c, double d, double e){
-        //graphs a logarithmic function
         for(int i = 0;i < width;i++){
-            //finds the relative x coordinate based on the origin and spacing of the graph
+            // calculate x coordinate based on spacing of graph
             double x = (i - hMidpoint)/(double)spacing;
             double x2 = x - 1/(double)spacing;
             double xChange = a*((Math.log(c*(x+d)))/(Math.log(b))) + e;
             double x2Change = a*((Math.log(c*(x2+d)))/(Math.log(b))) + e;
-            //checks if the number is valid and then changes the coordinates back to terms of the graph
+
+            // change coordinates in terms of graph
             if(!Double.isNaN(xChange) && !Double.isNaN(x2Change) && !Double.isInfinite(x2Change) && !Double.isInfinite(xChange)){
                 int y = -(int)(xChange*spacing) + vMidpoint;
                 int y2 = -(int)(x2Change*spacing) + vMidpoint;
@@ -71,8 +76,9 @@ public class Logarithmic extends Equations {
         }
     }
 
+    // generate grid
     public void drawGrid(Graphics g){
-        //determines necessary amount of lines
+        // calculate vertical and horizontal lines needed
         int vlines = width/spacing;
         int hlines = height/spacing;
         if (vlines % 2 != 0){
@@ -83,11 +89,11 @@ public class Logarithmic extends Equations {
         }
         int hcount = 0, vcount = 0, i;
         for(i = 0;i < height;i = i+spacing){
-            //draws horizontal line
+            // horizontal line
             g.drawLine(0, i, width, i);
             g.drawString(Integer.toString(-(hcount - hlines/2)), width/2 + 10, i);
             if(hlines == hcount*2){
-                //if the line is in the middle then make it appear thicker as an axis
+                // make middle line more visible
                 vMidpoint = i;
                 g.drawLine(0, i+1, width, i+1);
                 g.drawLine(0, i-1, width, i-1);
@@ -95,16 +101,20 @@ public class Logarithmic extends Equations {
             hcount++;
         }
         for(i = 0;i < width;i = i+spacing){
-            //draws vertical line
+            // vertical line
             g.drawLine(i, 0, i, height);
             g.drawString(Integer.toString(vcount - vlines/2), i, height/2 + 20);
             if(vlines == vcount*2){
-                //if the line is in the middle make it appear thicker as an axis
+                // make middle line more visible
                 hMidpoint = i;
                 g.drawLine(i+1, 0, i+1, height);
                 g.drawLine(i-1, 0, i-1, height);
             }
             vcount++;
         }
+    }
+
+    public String toString() {
+        return super.toString();
     }
 }

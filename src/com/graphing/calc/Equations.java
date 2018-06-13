@@ -3,6 +3,7 @@ package com.graphing.calc;
 public class Equations {
     protected int coef1, coef2, coef3, coef4, base;
 
+    // main constructor
     public Equations() {
         coef1 = 0;
         coef2 = 0;
@@ -11,6 +12,7 @@ public class Equations {
         base = 0;
     }
 
+    // constructor with values
     public Equations(int c1, int c2, int c3, int c4, int b) {
         coef1 = c1;
         coef2 = c2;
@@ -20,6 +22,7 @@ public class Equations {
 
     }
 
+    // set values
     public void setCoef1(int c1) {
         coef1 = c1;
     }
@@ -49,6 +52,7 @@ public class Equations {
         return coef2;
     }
 
+    // get values
     public int getCoef3() {
         return coef3;
     }
