@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class GraphingCalc extends JFrame {
 
+    //initializing variables
     private GraphCanvas canvas;
     private JLabel label1,label2;
     private JPanel mainPanel, northPanel, southPanel, submitPanel;
@@ -23,38 +24,47 @@ public class GraphingCalc extends JFrame {
     public String parentFunction, searchValue, coef1, coef2, coef3, coef4, coef5, base;
 
     public GraphingCalc() {
+        //Creates label that contains author info
         label2 = new JLabel("Created By: Seyon Rajagopal and Jacky Ly ");
         label2.setOpaque(true);
         label2.setBackground(Color.WHITE);
 
+        //Creates a button for information/search
         infoImg = new ImageIcon("info-button.png");
         infoBtn = new JButton(infoImg);
         infoBtn.addActionListener(new ButtonListener());
         infoBtn.setAlignmentX(RIGHT_ALIGNMENT);
 
+        //Creates a button to return to home screen
         returnImg = new ImageIcon("rtnButton.png");
         rtnBtn = new JButton(returnImg);
         rtnBtn.addActionListener(new ButtonListener());
 
-        ftnSubmit = new JButton("Submit");
+        //Creates a button to graph the function
+        ftnSubmit = new JButton("Graph");
         ftnSubmit.addActionListener(new ButtonListener());
 
+        //Creates a button to clear the graph
         clrBtn = new JButton("Clear");
         clrBtn.addActionListener(new ButtonListener());
 
+        //Panel that contains both the graph and clear buttons
         submitPanel = new JPanel();
         submitPanel.add(ftnSubmit);
         submitPanel.add(clrBtn);
 
+        //Panel that contains the info button
         northPanel = new JPanel(new BorderLayout());
         northPanel.add(infoBtn, BorderLayout.EAST);
         northPanel.setOpaque(false);
 
+        //Panel that contains the return button and the author information
         southPanel = new JPanel(new BorderLayout());
         southPanel.add(label2,BorderLayout.EAST);
         southPanel.add(rtnBtn, BorderLayout.WEST);
         southPanel.setOpaque(true);
 
+        //Calls mainScreen method
         mainScreen();
 
         //prompts the user whether they are sure before closing
@@ -68,14 +78,18 @@ public class GraphingCalc extends JFrame {
         });
     }
 
+    //main
     public static void main(String[] args) {
         new GraphingCalc();
     }
 
+    // Method for the main Scrren shown on start-up
     private void mainScreen(){
+        //label that says function type
         label1 = new JLabel("Choose Function Type:");
         label1.setAlignmentX(CENTER_ALIGNMENT);
 
+        //dropdown mwnu of all functions
         String[] functionList = {"-- Select Function --", "Linear", "Quadratic", "Exponential", "Logarithmic",};
         chooseFunction = new JComboBox<>(functionList);
         chooseFunction.addActionListener(new ButtonListener());
@@ -84,13 +98,16 @@ public class GraphingCalc extends JFrame {
         chooseFunction.setOpaque(false);
         chooseFunction.grabFocus();
 
+        //Enter button that selects the function
         enterButton = new JButton("Enter");
         enterButton.addActionListener(new ButtonListener());
         enterButton.setMaximumSize(new Dimension(100, 30));
         enterButton.setAlignmentX(CENTER_ALIGNMENT);
 
+        //sets return button not visible on main screen
         rtnBtn.setVisible(false);
 
+        //main panel that contains the rest of the components
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
@@ -105,6 +122,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(Box.createRigidArea(new Dimension(820, 220)));
         mainPanel.add(southPanel);
 
+        //properties of JFrame
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
@@ -116,8 +134,10 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
+    //Method for the screen with a linear function
     private void linearScreen() {
 
+        //components where properties of the linear function is inputted
         c1 = new JTextField(2);
         c2 = new JTextField(2);
         JPanel type = new JPanel();
@@ -130,9 +150,11 @@ public class GraphingCalc extends JFrame {
         coefs.add(new JLabel("b: "));
         coefs.add(c2);
 
+        // changes text  of a label and sets return button to visible
         rtnBtn.setVisible(true);
         label2.setText("*Please click 'Clear' before entering a new set of data");
 
+        //main panel that contains the rest of the components
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820, 600);
@@ -145,6 +167,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(submitPanel);
         mainPanel.add(southPanel);
 
+        //properties of JFrame
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
@@ -156,8 +179,10 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
+    //Method for the screen with a quadratic function
     private void quadraticScreen() {
 
+        //components where properties of the quadratic function is inputted
         c1 = new JTextField(2);
         c2 = new JTextField(2);
         c3 = new JTextField(2);
@@ -173,9 +198,11 @@ public class GraphingCalc extends JFrame {
         coefs.add(new JLabel("c: "));
         coefs.add(c3);
 
+        // changes text  of a label and sets return button to visible
         rtnBtn.setVisible(true);
         label2.setText("*Please click 'Clear' before entering a new set of data");
 
+        //main panel that contains the rest of the components
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
@@ -188,6 +215,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(submitPanel);
         mainPanel.add(southPanel);
 
+        //properties of JFrame
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
@@ -199,8 +227,10 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
+    //Method for the screen with a exponential function
     private void exponentialScreen(){
 
+        //components where properties of the exponential function is inputted
         b = new JTextField(2);
         JPanel type = new JPanel();
         type.add(new JLabel("Exponential Function:"));
@@ -210,9 +240,11 @@ public class GraphingCalc extends JFrame {
         coefs.add(new JLabel("a: "));
         coefs.add(b);
 
+        // changes text  of a label and sets return button to visible
         rtnBtn.setVisible(true);
         label2.setText("*Please click 'Clear' before entering a new set of data");
 
+        //main panel that contains the rest of the components
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
@@ -225,6 +257,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(submitPanel);
         mainPanel.add(southPanel);
 
+        //properties of JFrame
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
@@ -236,8 +269,10 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
+    //Method for the screen with a logarithmic function
     private void logarithmicScreen(){
 
+        //components where properties of the logarithmic function is inputted
         c1 = new JTextField(2);
         c2 = new JTextField(2);
         c3 = new JTextField(2);
@@ -259,9 +294,11 @@ public class GraphingCalc extends JFrame {
         coefs.add(new JLabel("e: "));
         coefs.add(c5);
 
+        // changes text  of a label and sets return button to visible
         rtnBtn.setVisible(true);
         label2.setText("*Please click 'Clear' before entering a new set of data");
 
+        //main panel that contains the rest of the components
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setSize(820,600);
@@ -274,6 +311,7 @@ public class GraphingCalc extends JFrame {
         mainPanel.add(submitPanel);
         mainPanel.add(southPanel);
 
+        //properties of JFrame
         setContentPane(new JLabel(new ImageIcon("background.jpg")));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(mainPanel);
@@ -285,9 +323,11 @@ public class GraphingCalc extends JFrame {
         setVisible(true);
     }
 
+    //Action Listeners
     private class ButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            //when enter button is clicked switches screens based on selection
             if (e.getSource() == enterButton) {
                 parentFunction = (String) chooseFunction.getSelectedItem();
                 assert parentFunction != null;
@@ -310,6 +350,7 @@ public class GraphingCalc extends JFrame {
                         break;
                 }
             }
+            //when info button is clicked calls glossary class
             else if (e.getSource() == infoBtn) {
                 Glossary dictionary = null;
                 try {
@@ -317,6 +358,7 @@ public class GraphingCalc extends JFrame {
                 } catch (IOException e1) {
                     //e1.printStackTrace();
                 }
+                //Dialog box for seaching text
                 ImageIcon searchIcon = new ImageIcon("active-search.png");
                 searchValue = (String) JOptionPane.showInputDialog(null, "Search for what you need help with:", "Glossary", JOptionPane.INFORMATION_MESSAGE, searchIcon, null, null);
                 try {
@@ -334,10 +376,12 @@ public class GraphingCalc extends JFrame {
                     //el.printStackTrace();
                 }
             }
+            //when return button is clicked  program is closed and relaunched
             else if(e.getSource() == rtnBtn) {
                 dispose();
                 new GraphingCalc();
             }
+            //when function and parameters are submitted its classes are called and graph is grawn
             else if (e.getSource() == ftnSubmit) {
                 if (parentFunction.equals("Linear")) {
                     coef1 = c1.getText();
@@ -401,6 +445,7 @@ public class GraphingCalc extends JFrame {
                 setExtendedState(JFrame.ICONIFIED);
                 setExtendedState(JFrame.NORMAL);
             }
+            //when clear button  is pressed, resets the screen
             else if (e.getSource() == clrBtn) {
                 switch (parentFunction) {
                     case "Linear":
