@@ -55,41 +55,51 @@ public class GraphCanvas extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        // linear function
+        // Linear Function
         if(parentFunction.equals("Linear")) {
-            poly.drawGrid(g);
-            g.setColor(Color.red);
-            poly.plotPoints(coef1, coef2); // calculate points of the graph
+            poly.drawGrid(g); // generate grid
+            g.setColor(Color.red); //set line color to red
+            poly.plotPoints(coef1, coef2); // calculate points on the graph
+            // draw graph onto the grid
             for (int i = 0; i < poly.getWidth(); i++) {
                 if ((poly.getyPoints(i) > 0 && poly.getyPoints(i) < poly.getHeight()) && (poly.gety2Points(i) > 0 && poly.gety2Points(i) < poly.getHeight())) {
                     g.drawLine(i, poly.getyPoints(i), i - 1, poly.gety2Points(i));
                 }
             }
         }
+
+        // Quadratic Function
         else if(parentFunction.equals("Quadratic")) {
-            poly.drawGrid(g);
-            g.setColor(Color.red);
-            poly.plotPoints(coef1, coef2, coef3);
+            poly.drawGrid(g); // draw grid
+            g.setColor(Color.red); // set line color to red
+            poly.plotPoints(coef1, coef2, coef3); // calculate points on the graph
+            // draw graph onto the grid
             for (int i = 0; i < poly.getWidth(); i++) {
                 if ((poly.getyPoints(i) > 0 && poly.getyPoints(i) < poly.getHeight()) && (poly.gety2Points(i) > 0 && poly.gety2Points(i) < poly.getHeight())) {
                     g.drawLine(i, poly.getyPoints(i), i - 1, poly.gety2Points(i));
                 }
             }
         }
+
+        // Exponential Function
         else if(parentFunction.equals("Exponential")) {
-            expo.drawGrid(g);
-            g.setColor(Color.red);
-            expo.plotPoints(base);
+            expo.drawGrid(g); // draw grid
+            g.setColor(Color.red); // set line color to red
+            expo.plotPoints(base); // calculate points on the graph
+            // draw graph onto the grid
             for (int i = 0; i < expo.getWidth(); i++) {
                 if ((expo.getyPoints(i) > 0 && expo.getyPoints(i) < expo.getHeight()) && (expo.gety2Points(i) > 0 && expo.gety2Points(i) < expo.getHeight())) {
                     g.drawLine(i, expo.getyPoints(i), i - 1, expo.gety2Points(i));
                 }
             }
         }
+
+        // Logarithmic Function
         else if(parentFunction.equals("Logarithmic")) {
-            log.drawGrid(g);
-            g.setColor(Color.red);
-            log.plotPoints(coef1, coef2, coef3, coef4, coef5);
+            log.drawGrid(g); // draw grid
+            g.setColor(Color.red); // set line color to red
+            log.plotPoints(coef1, coef2, coef3, coef4, coef5); // calculate points on the graph
+            // draw graph onto the grid
             for (int i = 0; i < log.getWidth(); i++) {
                 if ((log.getyPoints(i) > 0 && log.getyPoints(i) < log.getHeight()) && (log.gety2Points(i) > 0 && log.gety2Points(i) < log.getHeight())) {
                     g.drawLine(i, log.getyPoints(i), i - 1, log.gety2Points(i));
