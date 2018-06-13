@@ -15,12 +15,14 @@ public class GraphCanvas extends JPanel {
         repaint();
     }
 
+    // constructor for exponential function
     public GraphCanvas(String function, String b) {
         parentFunction = function;
         base = Integer.parseInt(b);
         repaint();
     }
 
+    // constructor for linear function
     public GraphCanvas(String function, String c1, String c2) {
         parentFunction = function;
         coef1 = Integer.parseInt(c1);
@@ -28,6 +30,7 @@ public class GraphCanvas extends JPanel {
         repaint();
     }
 
+    // constructor for quadratic function
     public GraphCanvas(String function, String c1, String c2, String c3) {
         parentFunction = function;
         coef1 = Integer.parseInt(c1);
@@ -36,6 +39,7 @@ public class GraphCanvas extends JPanel {
         repaint();
     }
 
+    // constructor for logarithmic function
     public GraphCanvas(String function, String c1, String c2, String c3, String c4, String c5) {
         parentFunction = function;
         coef1 = Integer.parseInt(c1);
@@ -46,13 +50,16 @@ public class GraphCanvas extends JPanel {
         repaint();
     }
 
+    // generate graph and grid
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        // linear function
         if(parentFunction.equals("Linear")) {
             poly.drawGrid(g);
             g.setColor(Color.red);
-            poly.plotPoints(coef1, coef2);
+            poly.plotPoints(coef1, coef2); // calculate points of the graph
             for (int i = 0; i < poly.getWidth(); i++) {
                 if ((poly.getyPoints(i) > 0 && poly.getyPoints(i) < poly.getHeight()) && (poly.gety2Points(i) > 0 && poly.gety2Points(i) < poly.getHeight())) {
                     g.drawLine(i, poly.getyPoints(i), i - 1, poly.gety2Points(i));
