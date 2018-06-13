@@ -8,6 +8,10 @@ public class Logarithmic extends Equations {
     private int[] yPoints = new int [2000];
     private int[] y2Points = new int [2000];
 
+    public Logarithmic(int c1, int c2, int c3, int c4) {
+        super(c1, c2, c3, c4, 0);
+    }
+
     public Logarithmic (){
         //default dimensions
         spacing = 30;

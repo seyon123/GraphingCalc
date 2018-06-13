@@ -8,6 +8,10 @@ public class Exponential extends Equations {
     private int[] yPoints = new int [2000];
     private int[] y2Points = new int [2000];
 
+    public Exponential(int c1, int c2, int c3, int c4) {
+        super(c1, c2, c3, c4, 0);
+    }
+
     public Exponential (){
         //default dimensions
         spacing = 30;
