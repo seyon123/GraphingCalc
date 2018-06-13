@@ -349,9 +349,7 @@ public class GraphingCalc extends JFrame {
                         mainPanel.add(canvas);
                     } else
                         JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
-                    int count = 0;
-                    if (count < poly.getWidth()) {
-                        count++;
+                    for (int i = 0; i < poly.getWidth(); i++) {
                         canvas.repaint();
                     }
                 }
@@ -366,9 +364,7 @@ public class GraphingCalc extends JFrame {
                         mainPanel.add(canvas);
                     } else
                         JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
-                    int count = 0;
-                    if (count < poly.getWidth()) {
-                        count++;
+                    for (int i = 0; i < poly.getWidth(); i++) {
                         canvas.repaint();
                     }
                 }
@@ -381,9 +377,7 @@ public class GraphingCalc extends JFrame {
                         mainPanel.add(canvas);
                     } else
                         JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
-                    int count = 0;
-                    if (count < expo.getWidth()) {
-                        count++;
+                    for (int i = 0; i < expo.getWidth(); i++) {
                         canvas.repaint();
                     }
                 }
@@ -400,9 +394,7 @@ public class GraphingCalc extends JFrame {
                         mainPanel.add(canvas);
                     } else
                         JOptionPane.showMessageDialog(null, "Please input coefficients of the function!", "No Coefficients", JOptionPane.ERROR_MESSAGE);
-                    int count = 0;
-                    if (count < log.getWidth()) {
-                        count++;
+                    for (int i = 0; i < log.getWidth(); i++) {
                         canvas.repaint();
                     }
                 }
